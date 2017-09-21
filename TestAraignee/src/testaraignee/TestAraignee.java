@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jeuaraignee;
+package testaraignee;
 
 /**
  *
- * @author Caro
+ * @author Océane
  */
-public class JeuAraignee {
+public class TestAraignee {
 
     /**
      * @param args the command line arguments
