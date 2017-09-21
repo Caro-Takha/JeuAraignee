@@ -1,0 +1,16 @@
+git init
+git add test.txt #commande à effectuer au début
+git status #dit s'il y a eu une modification
+git commit -m "Création du fichier"     #on enregistre le changement sur ce qu'on vient d'adder
+git commit test.txt -m " commentaire" #on enregistre le changement sur test.txt
+git diff #affiche ce qui a été changé sur le fichier fichier (vert en plus et rouge en moins)
+git log #pour voir tous les changements
+git push #pour que les changements locaux soient enregistrés aussi sur le serveur de Github
+gitx 
+git remote update #synchroniser modifs serveur Github et serveur local
+git pull #pour que les fichiers locaux soient modifiés en fonction des serbveurs Github
+
+
+
+history
+clear
