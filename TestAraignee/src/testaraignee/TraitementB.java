@@ -40,7 +40,7 @@ public class TraitementB extends Compteur {
     @Override
     public void actionPerformed (ActionEvent e) {
         int c=compteur.getCompteur()+1;
-        System.out.println(c);
+        //System.out.println(c);
         int joueur=0;
         if (c<7){
         if (actif==false){
@@ -79,16 +79,17 @@ public class TraitementB extends Compteur {
                 grille[ord][abs]=1;
                 joueur=1;
             }
-            int NumeroJoueur=c%2+1;
-            JOptionPane.showMessageDialog(frame, "Au tour du joueur "+NumeroJoueur);
+            
         }
         }
+        int NumeroJoueurSuivant=c%2+1;
         // Conditions gagnantes :
         if ((grille[ord-1][abs]==joueur&&(grille[ord-2][abs]==joueur||grille[ord+1][abs]==joueur))||(grille[ord+1][abs]==joueur&&(grille[ord+2][abs]==joueur||grille[ord-1][abs]==joueur))||(grille[ord][abs-1]==joueur&&(grille[ord][abs-2]==joueur||grille[ord][abs+1]==joueur))||(grille[ord][abs+1]==joueur&&(grille[ord][abs+2]==joueur||grille[ord][abs-1]==joueur))||(grille[ord-1][abs-1]==joueur&&(grille[ord-2][abs-2]==joueur||grille[ord+1][abs+1]==joueur))){
             System.out.println("Gagné joueur "+joueur);
-            
-            
-        }
+            JOptionPane.showMessageDialog(frame,"Le joueur "+joueur+" a gagné !"); 
+        }      
+        else
+            JOptionPane.showMessageDialog(frame, "Au tour du joueur "+NumeroJoueurSuivant);
         
     }
 }
