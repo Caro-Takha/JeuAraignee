@@ -6,16 +6,10 @@
 package testaraignee;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.ButtonGroup;
 import javax.swing.*;
 import java.awt.*;
 import javax.imageio.*;
-import java.awt.event.*;
-import java.awt.image.*;
 import java.io.*;
-import java.awt.image.BufferedImage;
-import java.awt.Image;
 
 /**
  *
@@ -85,6 +79,8 @@ public class TraitementB extends Compteur {
                 grille[ord][abs]=1;
                 joueur=1;
             }
+            int NumeroJoueur=c%2+1;
+            JOptionPane.showMessageDialog(frame, "Au tour du joueur "+NumeroJoueur);
         }
         }
         // Conditions gagnantes :
