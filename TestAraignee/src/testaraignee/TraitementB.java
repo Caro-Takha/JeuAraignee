@@ -10,6 +10,12 @@ import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.*;
 import java.awt.*;
+import javax.imageio.*;
+import java.awt.event.*;
+import java.awt.image.*;
+import java.io.*;
+import java.awt.image.BufferedImage;
+import java.awt.Image;
 
 /**
  *
@@ -40,10 +46,30 @@ public class TraitementB extends Compteur {
             actif=true;
             compteur.setCompteur(c);
             if (c%2==0){
-                button.setBackground(Color.BLACK);
+                Image img= null;
+                try {
+                img = ImageIO.read(new File("D:/Documents/NetBeansProjects/TestAraignee/src/ressources/Bouton bleu.png"));
+                } catch (IOException i) {
+                }
+                Image newimg = img.getScaledInstance(80, 80, java.awt.Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(newimg);
+                button.setIcon(icon);
+                button.setOpaque(false);
+                button.setContentAreaFilled(false);
+                button.setBorderPainted(false);
             }
             else{
-                button.setBackground(Color.PINK);
+                Image img= null;
+                try {
+                img = ImageIO.read(new File("D:/Documents/NetBeansProjects/TestAraignee/src/ressources/Bouton rouge.png"));
+                } catch (IOException i) {
+                }
+                Image newimg = img.getScaledInstance(80, 80, java.awt.Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(newimg);
+                button.setIcon(icon);
+                button.setOpaque(false);
+                button.setContentAreaFilled(false);
+                button.setBorderPainted(false);
             }
         }
         }
