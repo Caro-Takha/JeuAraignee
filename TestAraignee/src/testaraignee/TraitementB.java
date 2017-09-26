@@ -48,7 +48,7 @@ public class TraitementB extends Compteur {
             if (c%2==0){
                 Image img= null;
                 try {
-                img = ImageIO.read(new File("D:/Documents/NetBeansProjects/TestAraignee/src/ressources/Bouton bleu.png"));
+                img = ImageIO.read(new File("src/ressources/Bouton bleu.png"));
                 } catch (IOException i) {
                 }
                 Image newimg = img.getScaledInstance(80, 80, java.awt.Image.SCALE_SMOOTH);
@@ -61,7 +61,7 @@ public class TraitementB extends Compteur {
             else{
                 Image img= null;
                 try {
-                img = ImageIO.read(new File("D:/Documents/NetBeansProjects/TestAraignee/src/ressources/Bouton rouge.png"));
+                img = ImageIO.read(new File("src/ressources/Bouton rouge.png"));
                 } catch (IOException i) {
                 }
                 Image newimg = img.getScaledInstance(80, 80, java.awt.Image.SCALE_SMOOTH);
