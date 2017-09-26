@@ -25,19 +25,27 @@ public class TraitementB extends Compteur {
     private JButton button;
     private boolean actif;
     private Compteur compteur;
+    private int[][] grille;
+    private int ord;
+    private int abs;
     
     
-    public TraitementB(JButton b,Compteur compt){
+    public TraitementB(JButton b,Compteur compt,int xi,int xj){
         button=b;
         compteur=compt;
         compteur.setCompteur(0);
+        grille=compteur.getMatrice();
         actif=false;
+        ord=xi+1;
+        abs=xj+1;
+        
     }
     
     @Override
     public void actionPerformed (ActionEvent e) {
         int c=compteur.getCompteur()+1;
         System.out.println(c);
+        int joueur=0;
         if (c<7){
         if (actif==false){
             button.setOpaque(true);
@@ -57,6 +65,8 @@ public class TraitementB extends Compteur {
                 button.setOpaque(false);
                 button.setContentAreaFilled(false);
                 button.setBorderPainted(false);
+                grille[ord][abs]=2;
+                joueur=2;
             }
             else{
                 Image img= null;
@@ -70,8 +80,13 @@ public class TraitementB extends Compteur {
                 button.setOpaque(false);
                 button.setContentAreaFilled(false);
                 button.setBorderPainted(false);
+                grille[ord][abs]=1;
+                joueur=1;
             }
         }
+        }
+        if ((grille[ord-1][abs]==joueur&&(grille[ord-2][abs]==joueur||grille[ord+1][abs]==joueur))||(grille[ord+1][abs]==joueur&&(grille[ord+2][abs]==joueur||grille[ord-1][abs]==joueur))||(grille[ord][abs-1]==joueur&&(grille[ord][abs-2]==joueur||grille[ord][abs+1]==joueur))||(grille[ord][abs+1]==joueur&&(grille[ord][abs+2]==joueur||grille[ord][abs-1]==joueur))||(grille[ord-1][abs-1]==joueur&&(grille[ord-2][abs-2]==joueur||grille[ord+1][abs+1]==joueur))){
+            System.out.println("Gagné joueur "+joueur);
         }
         
     }

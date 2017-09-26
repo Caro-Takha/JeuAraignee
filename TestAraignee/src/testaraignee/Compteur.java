@@ -15,13 +15,23 @@ import java.awt.*;
  */
 public class Compteur implements ActionListener {
     private int compteur;
+    private int[][] matrice;
 
+    public Compteur(){
+        compteur=0;
+        matrice= new int[7][7];
+    }
+    
     public int getCompteur() {
         return compteur;
     }
 
     public void setCompteur(int compteur) {
         this.compteur = compteur;
+    }
+
+    public int[][] getMatrice() {
+        return matrice;
     }
 
     @Override
