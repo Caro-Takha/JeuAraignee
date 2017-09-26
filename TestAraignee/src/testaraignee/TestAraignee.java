@@ -37,63 +37,63 @@ public class TestAraignee {
         b11.setContentAreaFilled(false);
         b11.setBorderPainted(false);
         c.add(b11);
-        b11.addActionListener(new TraitementB(b11,compt,1,1));
+        b11.addActionListener(new TraitementB(b11,compt,1,1,f));
         
         JButton b12=new JButton("");
         b12.setOpaque(false);
         b12.setContentAreaFilled(false);
         b12.setBorderPainted(false);
         c.add(b12);
-        b12.addActionListener(new TraitementB(b12,compt,1,2));
+        b12.addActionListener(new TraitementB(b12,compt,1,2,f));
         
         JButton b13=new JButton("");
         b13.setOpaque(false);
         b13.setContentAreaFilled(false);
         b13.setBorderPainted(false);
         c.add(b13);
-        b13.addActionListener(new TraitementB(b13,compt,1,3));
+        b13.addActionListener(new TraitementB(b13,compt,1,3,f));
         
         JButton b21=new JButton("");
         b21.setOpaque(false);
         b21.setContentAreaFilled(false);
         b21.setBorderPainted(false);
         c.add(b21);
-        b21.addActionListener(new TraitementB(b21,compt,2,1));
+        b21.addActionListener(new TraitementB(b21,compt,2,1,f));
         
         JButton b22=new JButton("");
         b22.setOpaque(false);
         b22.setContentAreaFilled(false);
         b22.setBorderPainted(false);
         c.add(b22);
-        b22.addActionListener(new TraitementB(b22,compt,2,2));
+        b22.addActionListener(new TraitementB(b22,compt,2,2,f));
         
         JButton b23=new JButton("");
         b23.setOpaque(false);
         b23.setContentAreaFilled(false);
         b23.setBorderPainted(false);
         c.add(b23);
-        b23.addActionListener(new TraitementB(b23,compt,2,3));
+        b23.addActionListener(new TraitementB(b23,compt,2,3,f));
         
         JButton b31=new JButton("");
         b31.setOpaque(false);
         b31.setContentAreaFilled(false);
         b31.setBorderPainted(false);
         c.add(b31);
-        b31.addActionListener(new TraitementB(b31,compt,3,1));
+        b31.addActionListener(new TraitementB(b31,compt,3,1,f));
         
         JButton b32=new JButton("");
         b32.setOpaque(false);
         b32.setContentAreaFilled(false);
         b32.setBorderPainted(false);
         c.add(b32);
-        b32.addActionListener(new TraitementB(b32,compt,3,2));
+        b32.addActionListener(new TraitementB(b32,compt,3,2,f));
         
         JButton b33=new JButton("");
         b33.setOpaque(false);
         b33.setContentAreaFilled(false);
         b33.setBorderPainted(false);
         c.add(b33);
-        b33.addActionListener(new TraitementB(b33,compt,3,3));
+        b33.addActionListener(new TraitementB(b33,compt,3,3,f));
         
               
         

@@ -15,11 +15,11 @@ import java.awt.*;
  */
 public class Compteur implements ActionListener {
     private int compteur;
-    private int[][] matrice;
+    private int[][] matrice; // Cette matrice permet de stocker l'état du jeu (les pions sont où et à qui)
 
     public Compteur(){
         compteur=0;
-        matrice= new int[7][7];
+        matrice= new int[7][7]; //Il y a la matrice 3x3 plus 2 rangées de cases tout autour (ce qui permet de ne pas avoir d'érreur lorsqu'on vérifie si l'état est gagnant
     }
     
     public int getCompteur() {

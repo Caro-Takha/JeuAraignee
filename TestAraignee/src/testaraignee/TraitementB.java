@@ -25,12 +25,13 @@ public class TraitementB extends Compteur {
     private JButton button;
     private boolean actif;
     private Compteur compteur;
-    private int[][] grille;
+    private int[][] grille; // C'est la matrice dans Compteur (voir classe Compteur)
     private int ord;
     private int abs;
+    private JFrame frame;
     
     
-    public TraitementB(JButton b,Compteur compt,int xi,int xj){
+    public TraitementB(JButton b,Compteur compt,int xi,int xj,JFrame f){
         button=b;
         compteur=compt;
         compteur.setCompteur(0);
@@ -38,6 +39,7 @@ public class TraitementB extends Compteur {
         actif=false;
         ord=xi+1;
         abs=xj+1;
+        frame=f;
         
     }
     
@@ -58,15 +60,15 @@ public class TraitementB extends Compteur {
                 try {
                 img = ImageIO.read(new File("src/ressources/Bouton bleu.png"));
                 } catch (IOException i) {
-                }
-                Image newimg = img.getScaledInstance(80, 80, java.awt.Image.SCALE_SMOOTH);
+                }// il faut faire une exception pour aller chercher un fichier au cas où le fichier n'existe pas
+                Image newimg = img.getScaledInstance(80, 80, java.awt.Image.SCALE_SMOOTH); // changer la taille de l'image pour s'adapter au bouton
                 ImageIcon icon = new ImageIcon(newimg);
-                button.setIcon(icon);
-                button.setOpaque(false);
+                button.setIcon(icon); // ajouter l'image au bouton
+                button.setOpaque(false); 
                 button.setContentAreaFilled(false);
-                button.setBorderPainted(false);
-                grille[ord][abs]=2;
-                joueur=2;
+                button.setBorderPainted(false); // Cela remet le bouton invisible
+                grille[ord][abs]=2; // Signale que cette case  est désormais occupée par le joueur 2
+                joueur=2; // Le joueur de ce tour est le joueur 2
             }
             else{
                 Image img= null;
@@ -85,8 +87,11 @@ public class TraitementB extends Compteur {
             }
         }
         }
+        // Conditions gagnantes :
         if ((grille[ord-1][abs]==joueur&&(grille[ord-2][abs]==joueur||grille[ord+1][abs]==joueur))||(grille[ord+1][abs]==joueur&&(grille[ord+2][abs]==joueur||grille[ord-1][abs]==joueur))||(grille[ord][abs-1]==joueur&&(grille[ord][abs-2]==joueur||grille[ord][abs+1]==joueur))||(grille[ord][abs+1]==joueur&&(grille[ord][abs+2]==joueur||grille[ord][abs-1]==joueur))||(grille[ord-1][abs-1]==joueur&&(grille[ord-2][abs-2]==joueur||grille[ord+1][abs+1]==joueur))){
             System.out.println("Gagné joueur "+joueur);
+            
+            
         }
         
     }
