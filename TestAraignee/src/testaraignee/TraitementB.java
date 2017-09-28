@@ -79,12 +79,12 @@ public class TraitementB extends Compteur {
         }
         }
         if (c>6){
-            if (Selection[0][0]!=0){ //cas oÃ¹ un bouton est selectionnÃ©
+            if (Selection[0][0]!=0&&actif==false){ //cas oÃ¹ un bouton est selectionnÃ©
                 if (c%2==0){
-                    this.setImage("src/ressources/Bouton bleu.png");
+                    this.setImage("src/ressources/Bouton bleu.png");//Ajouter l'image au bouton
                     grille[ord][abs]=2;
                     actif=true;
-                    compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setIcon(null); // ajouter l'image au bouton
+                    compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setIcon(null); //Supprimer celui qui avait été sélectionné
                     compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setOpaque(false); 
                     compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setContentAreaFilled(false);
                     compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setBorderPainted(false); // Cela remet le bouton invisible
@@ -112,7 +112,8 @@ public class TraitementB extends Compteur {
                 if (Selection[0][0]==0 && grille[ord][abs]==c%2+1){
                     JOptionPane.showMessageDialog(frame,"Ceci est un pion adverse, recommencez !");
                 }
-                if (Selection[0][0]==0 && actif!=false && grille[ord][abs]!=c%2+1){
+                if (Selection[0][0]==0 && actif==true && grille[ord][abs]!=c%2+1){
+                    actif=false;
                     if (c%2==0){
                         this.setImage("src/ressources/Bouton bleu fonce.png");
                         Selection[0][1]=ord-1;

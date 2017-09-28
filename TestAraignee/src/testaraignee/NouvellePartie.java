@@ -26,12 +26,8 @@ public class NouvellePartie extends Compteur{
     
     public void actionPerformed(ActionEvent e) {
         frame.dispose();
-        frame = new MyFrame(compt);
-        for (int i = 0; i <7 ; i++) {
-            for (int j = 0; i < 7; i++){
-                compt.getMatrice()[i][j]=-1;  
-            }
-                }
+        Compteur NewCompt =new Compteur();
+        frame = new MyFrame(NewCompt);
         frame.setVisible(true);
         
         

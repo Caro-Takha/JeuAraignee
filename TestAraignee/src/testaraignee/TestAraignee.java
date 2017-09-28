@@ -23,7 +23,6 @@ public class TestAraignee {
         MyFrame f = new MyFrame(compt);
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
         f.setVisible(true);
     }
     
