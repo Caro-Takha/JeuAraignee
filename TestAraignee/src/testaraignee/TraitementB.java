@@ -21,7 +21,7 @@ public class TraitementB extends Compteur {
     private boolean actif;
     private Compteur compteur;
     private int[][] grille; // C'est la matrice dans Compteur (voir classe Compteur)
-    private int[][] Selection; //matrice qui donne les coordonnees d'un pion selectionnÃ©
+    private int[] Selection; //tableau qui donne les coordonnees d'un pion selectionnÃ© et s'il existe un point selctionné
     private int ord;
     private int abs;
     private MyFrame frame;
@@ -79,54 +79,62 @@ public class TraitementB extends Compteur {
         }
         }
         if (c>6){
-            if (Selection[0][0]!=0&&actif==false){ //cas oÃ¹ un bouton est selectionnÃ©
-                if (((Selection[0][0]+1==abs+1||Selection[0][0]+1==abs-1||Selection[0][0]+1==abs)&&(Selection[0][1]+1==ord+1||Selection[0][1]+1==ord-1))||((Selection[0][0]+1==abs+1||Selection[0][0]+1==abs-1)&&(Selection[0][1]+1==ord+1||Selection[0][1]+1==ord-1||Selection[0][1]+1==ord))){
-                    if (c%2==0){
-                        this.setImage("src/ressources/Bouton bleu.png");//Ajouter l'image au bouton
-                        grille[ord][abs]=2;
-                        actif=true;
-                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setIcon(null); //Supprimer celui qui avait été sélectionné
-                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setOpaque(false); 
-                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setContentAreaFilled(false);
-                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setBorderPainted(false); // Cela remet le bouton invisible
-                        Selection[0][0]=0;
-                        compteur.setCompteur(c);
-                        joueur=2; // Le joueur de ce tour est le joueur 2
-                    }
-                    else{
-                        this.setImage("src/ressources/Bouton rouge.png");
-                        grille[ord][abs]=1;
-                        actif=true;     
-                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setIcon(null); // ajouter l'image au bouton
-                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setOpaque(false); 
-                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setContentAreaFilled(false);
-                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setBorderPainted(false); // Cela remet le bouton invisible    
-                        Selection[0][0]=0;
-                        compteur.setCompteur(c);
-                        joueur=1; // Le joueur de ce tour est le joueur 1
-                    }
+            if (Selection[2]!=0&&actif==false){ //cas oÃ¹ un bouton est selectionnÃ©
+                if (((Math.abs(Selection[0]-Selection[1])==1)&&(((Selection[0]+1==abs+1||Selection[0]+1==abs-1)&&Selection[1]+1==ord)||((Selection[1]+1==ord+1||Selection[1]+1==ord-1)&&Selection[0]+1==abs)))||((Math.abs(Selection[0]-Selection[1])!=1)&&(Math.abs(Selection[0]+1-abs)==1||Math.abs(Selection[1]+1-ord)==1))){
+                    
+                        if (c%2==0){
+                            this.setImage("src/ressources/Bouton bleu.png");//Ajouter l'image au bouton
+                            grille[ord][abs]=2;
+                            actif=true;
+                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setIcon(null); //Supprimer celui qui avait été sélectionné
+                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setOpaque(false); 
+                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setContentAreaFilled(false);
+                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setBorderPainted(false); // Cela remet le bouton invisible
+                            Selection[2]=0;
+                            compteur.setCompteur(c);
+                            joueur=2; // Le joueur de ce tour est le joueur 2
+                        }
+                        else{
+                            this.setImage("src/ressources/Bouton rouge.png");
+                            grille[ord][abs]=1;
+                            actif=true;     
+                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setIcon(null); // ajouter l'image au bouton
+                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setOpaque(false); 
+                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setContentAreaFilled(false);
+                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setBorderPainted(false); // Cela remet le bouton invisible    
+                            Selection[2]=0;
+                            compteur.setCompteur(c);
+                            joueur=1; // Le joueur de ce tour est le joueur 1
+                        }
+                    
+                    
                 }
+                else{
+                    JOptionPane.showMessageDialog(frame,"Seuls les déplacements le long des lignes sont autorisés");
+                    }
+                
             }
             else{
-                if (Selection[0][0]==0 && actif==false){
+                if (Selection[2]==1 && actif==true){
+                    JOptionPane.showMessageDialog(frame,"Veuillez sélectionner une case vide");
+                }
+                if (Selection[2]==0 && actif==false){
                     JOptionPane.showMessageDialog(frame,"Selectionnez un de vos pions pour le deplacer");     
                 }
-                if (Selection[0][0]==0 && grille[ord][abs]==c%2+1){
+                if (Selection[2]==0 && grille[ord][abs]==c%2+1){
                     JOptionPane.showMessageDialog(frame,"Ceci est un pion adverse, recommencez !");
                 }
-                if (Selection[0][0]==0 && actif==true && grille[ord][abs]!=c%2+1){
+                if (Selection[2]==0 && actif==true && grille[ord][abs]!=c%2+1){
                     actif=false;
+                    Selection[1]=ord-1;
+                    Selection[0]=abs-1;
+                    Selection[2]=1;
+                    grille[ord][abs]=0;
                     if (c%2==0){
                         this.setImage("src/ressources/Bouton bleu fonce.png");
-                        Selection[0][1]=ord-1;
-                        Selection[0][0]=abs-1;     
-                        grille[ord][abs]=0;
                     }
                     else{
                         this.setImage("src/ressources/Bouton rouge fonce.png");
-                        Selection[0][1]=ord-1;
-                        Selection[0][0]=abs-1; 
-                        grille[ord][abs]=0;
                     }
                 }
             }

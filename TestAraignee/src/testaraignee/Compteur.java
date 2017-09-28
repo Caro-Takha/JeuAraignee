@@ -17,12 +17,12 @@ import java.util.ArrayList;
 public class Compteur implements ActionListener {
     private int compteur;
     private int[][] matrice; // Cette matrice permet de stocker l'Ã©tat du jeu (les pions sont oÃ¹ et Ã  qui)
-    private int [][] Selection;
+    private int [] Selection;
     private ArrayList<JButton> ListeBoutons;
 
     public Compteur(){
         compteur=0;
-        Selection=new int[1][2];
+        Selection=new int[3];
         matrice= new int[7][7]; //Il y a la matrice 3x3 plus 2 rangÃ©es de cases tout autour (ce qui permet de ne pas avoir d'Ã©rreur lorsqu'on vÃ©rifie si l'Ã©tat est gagnant
         ListeBoutons = new ArrayList(); //On crÃ©e la liste contenant les 9 boutons
         for (int i = 0; i < 9; i++) {
@@ -47,11 +47,11 @@ public class Compteur implements ActionListener {
         return matrice;
     }
 
-    public int[][] getSelection() {
+    public int[] getSelection() {
         return Selection;
     }
 
-    public void setSelection(int[][] Selection) {
+    public void setSelection(int[] Selection) {
         this.Selection = Selection;
     }
 
