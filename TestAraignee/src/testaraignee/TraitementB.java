@@ -80,30 +80,32 @@ public class TraitementB extends Compteur {
         }
         if (c>6){
             if (Selection[0][0]!=0&&actif==false){ //cas oÃ¹ un bouton est selectionnÃ©
-                if (c%2==0){
-                    this.setImage("src/ressources/Bouton bleu.png");//Ajouter l'image au bouton
-                    grille[ord][abs]=2;
-                    actif=true;
-                    compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setIcon(null); //Supprimer celui qui avait été sélectionné
-                    compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setOpaque(false); 
-                    compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setContentAreaFilled(false);
-                    compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setBorderPainted(false); // Cela remet le bouton invisible
-                    Selection[0][0]=0;
-                    compteur.setCompteur(c);
-                    joueur=2; // Le joueur de ce tour est le joueur 2
+                if (((Selection[0][0]+1==abs+1||Selection[0][0]+1==abs-1||Selection[0][0]+1==abs)&&(Selection[0][1]+1==ord+1||Selection[0][1]+1==ord-1))||((Selection[0][0]+1==abs+1||Selection[0][0]+1==abs-1)&&(Selection[0][1]+1==ord+1||Selection[0][1]+1==ord-1||Selection[0][1]+1==ord))){
+                    if (c%2==0){
+                        this.setImage("src/ressources/Bouton bleu.png");//Ajouter l'image au bouton
+                        grille[ord][abs]=2;
+                        actif=true;
+                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setIcon(null); //Supprimer celui qui avait été sélectionné
+                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setOpaque(false); 
+                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setContentAreaFilled(false);
+                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setBorderPainted(false); // Cela remet le bouton invisible
+                        Selection[0][0]=0;
+                        compteur.setCompteur(c);
+                        joueur=2; // Le joueur de ce tour est le joueur 2
+                    }
+                    else{
+                        this.setImage("src/ressources/Bouton rouge.png");
+                        grille[ord][abs]=1;
+                        actif=true;     
+                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setIcon(null); // ajouter l'image au bouton
+                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setOpaque(false); 
+                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setContentAreaFilled(false);
+                        compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setBorderPainted(false); // Cela remet le bouton invisible    
+                        Selection[0][0]=0;
+                        compteur.setCompteur(c);
+                        joueur=1; // Le joueur de ce tour est le joueur 1
+                    }
                 }
-                else{
-                    this.setImage("src/ressources/Bouton rouge.png");
-                    grille[ord][abs]=1;
-                    actif=true;     
-                    compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setIcon(null); // ajouter l'image au bouton
-                    compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setOpaque(false); 
-                    compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setContentAreaFilled(false);
-                    compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setBorderPainted(false); // Cela remet le bouton invisible    
-                    Selection[0][0]=0;
-                    compteur.setCompteur(c);
-                    joueur=1; // Le joueur de ce tour est le joueur 1
-                }                              
             }
             else{
                 if (Selection[0][0]==0 && actif==false){
