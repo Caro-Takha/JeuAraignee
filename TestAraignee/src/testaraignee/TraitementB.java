@@ -82,18 +82,19 @@ public class TraitementB extends Compteur {
             if (Selection[0][0]!=0){ //cas oÃ¹ un bouton est selectionnÃ©
                 if (c%2==0){
                     this.setImage("src/ressources/Bouton bleu.png");
+                    grille[ord][abs]=2;
                     actif=true;
                     compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setIcon(null); // ajouter l'image au bouton
                     compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setOpaque(false); 
                     compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setContentAreaFilled(false);
                     compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setBorderPainted(false); // Cela remet le bouton invisible
                     Selection[0][0]=0;
-                    grille[Selection[0][0]][Selection[0][1]]=0;
                     compteur.setCompteur(c);
                     joueur=2; // Le joueur de ce tour est le joueur 2
                 }
                 else{
                     this.setImage("src/ressources/Bouton rouge.png");
+                    grille[ord][abs]=1;
                     actif=true;     
                     compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setIcon(null); // ajouter l'image au bouton
                     compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setOpaque(false); 
@@ -101,7 +102,6 @@ public class TraitementB extends Compteur {
                     compteur.getListeBoutons().get(3*Selection[0][0]+Selection[0][1]-4).setBorderPainted(false); // Cela remet le bouton invisible    
                     Selection[0][0]=0;
                     compteur.setCompteur(c);
-                    grille[Selection[0][0]][Selection[0][1]]=0;
                     joueur=1; // Le joueur de ce tour est le joueur 1
                 }                              
             }
@@ -116,12 +116,14 @@ public class TraitementB extends Compteur {
                     if (c%2==0){
                         this.setImage("src/ressources/Bouton bleu fonce.png");
                         Selection[0][1]=ord-1;
-                        Selection[0][0]=abs-1;                   
+                        Selection[0][0]=abs-1;     
+                        grille[ord][abs]=0;
                     }
                     else{
                         this.setImage("src/ressources/Bouton rouge fonce.png");
                         Selection[0][1]=ord-1;
-                        Selection[0][0]=abs-1;                    
+                        Selection[0][0]=abs-1; 
+                        grille[ord][abs]=0;
                     }
                 }
             }
@@ -133,8 +135,8 @@ public class TraitementB extends Compteur {
         // Conditions gagnantes :
         if ((grille[ord-1][abs]==joueur&&(grille[ord-2][abs]==joueur||grille[ord+1][abs]==joueur))||(grille[ord+1][abs]==joueur&&(grille[ord+2][abs]==joueur||grille[ord-1][abs]==joueur))||(grille[ord][abs-1]==joueur&&(grille[ord][abs-2]==joueur||grille[ord][abs+1]==joueur))||(grille[ord][abs+1]==joueur&&(grille[ord][abs+2]==joueur||grille[ord][abs-1]==joueur))||(grille[ord-1][abs-1]==joueur&&(grille[ord-2][abs-2]==joueur||grille[ord+1][abs+1]==joueur))){
             if (joueur!=0){
-                System.out.println("GagnÃ© joueur "+joueur);
-                JOptionPane.showMessageDialog(frame,"Le joueur "+joueur+" a gagnÃ© !"); 
+                System.out.println("Gagné joueur "+joueur);
+                JOptionPane.showMessageDialog(frame,"Le joueur "+joueur+" est victorieux !"); 
             }
         }      
         else
