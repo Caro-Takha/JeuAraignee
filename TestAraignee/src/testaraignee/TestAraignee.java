@@ -31,8 +31,8 @@ public class TestAraignee {
         int h = f.getHeight(); 
         GridLayout g=new GridLayout(3, 3);
         c.setLayout(g);
-        g.setHgap(w/5);
-        g.setVgap(w/5);
+        //g.setHgap(w/5);
+        //g.setVgap(w/5);
         
         ArrayList<JButton> ListeBoutons = new ArrayList(); //On crée la liste contenant les 9 boutons
         for (int i = 0; i < 9; i++) {
