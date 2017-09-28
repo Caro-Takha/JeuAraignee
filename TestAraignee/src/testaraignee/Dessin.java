@@ -15,11 +15,12 @@ public class Dessin extends JPanel {
     
     public void paintComponent(Graphics g) {
 	super.paintComponent(g);
-        int p=50;
-        int w = getWidth()-p;
-        int h = getHeight()-p; 
-        int x0=p;
-        int y0=p;
+        int px= (int) Math.round(getWidth()*0.1675);
+        int py= (int) Math.round(getHeight()*0.1675);
+        int w = getWidth()-px;
+        int h = getHeight()-py; 
+        int x0=px;
+        int y0=py;
         Graphics2D g2 = (Graphics2D) g;
         g2.setStroke(new BasicStroke(5));
         g2.draw(new Line2D.Float(x0, y0, w, h));
@@ -28,8 +29,8 @@ public class Dessin extends JPanel {
         g2.draw(new Line2D.Float(x0, h, w, h));
         g2.draw(new Line2D.Float(x0, h, w, y0));
         g2.draw(new Line2D.Float(w, y0, w, h));
-        g2.draw(new Line2D.Float((w+p)/2, y0, (w+p)/2, h));
-        g2.draw(new Line2D.Float(x0,(h+p)/2, w, (h+p)/2));
+        g2.draw(new Line2D.Float((w+px)/2, y0, (w+px)/2, h));
+        g2.draw(new Line2D.Float(x0,(h+py)/2, w, (h+py)/2));
        
         
         
