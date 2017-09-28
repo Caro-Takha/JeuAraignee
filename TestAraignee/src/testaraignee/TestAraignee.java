@@ -19,13 +19,11 @@ public class TestAraignee {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        JFrame f = new JFrame("Dessin");
-        f.setSize(500, 500);
-        f.setContentPane(new Dessin());
-        //Dessin d = new Dessin();
-        JPanel c = (JPanel) f.getContentPane();
+        MyFrame f = new MyFrame();
+
         Compteur compt=new Compteur();
-        
+        JPanel c = (JPanel) f.getContentPane();
+        //Dessin d = new Dessin();
         
         int w = f.getWidth();
         int h = f.getHeight(); 

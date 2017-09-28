@@ -90,6 +90,6 @@ public class TraitementB extends Compteur {
         }      
         else
             JOptionPane.showMessageDialog(frame, "Au tour du joueur "+NumeroJoueurSuivant);
-        
+        frame.repaint();
     }
 }
