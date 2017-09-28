@@ -23,20 +23,20 @@ public class MyFrame extends JFrame {
         super();
         compt=c;
         this.setTitle("Jeu de l'araignée");
-        this.setContentPane(new Dessin(compt,this));
+        this.setContentPane(new Dessin(compt,this)); //On ajoute le plateau de jeu
         
         this.setSize(600, 600);
-        //this.setLocationRelativeTo(null);
+
         JMenuBar mBar = new JMenuBar();
-        this.setJMenuBar(mBar);
+        this.setJMenuBar(mBar); // On ajoute une barre de menu
         
         JMenu menu = new JMenu("Fichier");
-        mBar.add(menu);
+        mBar.add(menu);// on ajoute un menu "Fichier"
         
         JMenuItem menuItem = new JMenuItem("Nouvelle Partie");
-        menu.add(menuItem);
+        menu.add(menuItem); 
         
-        menuItem.addActionListener(new NouvellePartie(compt,this));
+        menuItem.addActionListener(new NouvellePartie(compt,this)); //On ajoute le redémarrage du jeu après appui sur "Nouvelle partie"
         repaint();
         
 

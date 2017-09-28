@@ -81,28 +81,22 @@ public class TraitementB extends Compteur {
         if (c>6){
             if (Selection[2]!=0&&actif==false){ //cas oÃ¹ un bouton est selectionnÃ©
                 if (((Math.abs(Selection[0]-Selection[1])==1)&&(((Selection[0]+1==abs+1||Selection[0]+1==abs-1)&&Selection[1]+1==ord)||((Selection[1]+1==ord+1||Selection[1]+1==ord-1)&&Selection[0]+1==abs)))||((Math.abs(Selection[0]-Selection[1])!=1)&&(Math.abs(Selection[0]+1-abs)==1||Math.abs(Selection[1]+1-ord)==1))){
-                    
+                    // On vérifie que le déplacement se fait selon une ligne et d'un seul cran
+                compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setIcon(null); //Supprimer le bouton qui avait été sélectionné
+                compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setOpaque(false); 
+                compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setContentAreaFilled(false);
+                compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setBorderPainted(false); // Cela remet le bouton invisible
+                Selection[2]=0;
+                actif=true;
+                compteur.setCompteur(c);
                         if (c%2==0){
                             this.setImage("src/ressources/Bouton bleu.png");//Ajouter l'image au bouton
                             grille[ord][abs]=2;
-                            actif=true;
-                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setIcon(null); //Supprimer celui qui avait été sélectionné
-                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setOpaque(false); 
-                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setContentAreaFilled(false);
-                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setBorderPainted(false); // Cela remet le bouton invisible
-                            Selection[2]=0;
-                            compteur.setCompteur(c);
                             joueur=2; // Le joueur de ce tour est le joueur 2
                         }
                         else{
                             this.setImage("src/ressources/Bouton rouge.png");
                             grille[ord][abs]=1;
-                            actif=true;     
-                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setIcon(null); // ajouter l'image au bouton
-                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setOpaque(false); 
-                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setContentAreaFilled(false);
-                            compteur.getListeBoutons().get(3*Selection[0]+Selection[1]-4).setBorderPainted(false); // Cela remet le bouton invisible    
-                            Selection[2]=0;
                             compteur.setCompteur(c);
                             joueur=1; // Le joueur de ce tour est le joueur 1
                         }
@@ -124,7 +118,7 @@ public class TraitementB extends Compteur {
                 if (Selection[2]==0 && grille[ord][abs]==c%2+1){
                     JOptionPane.showMessageDialog(frame,"Ceci est un pion adverse, recommencez !");
                 }
-                if (Selection[2]==0 && actif==true && grille[ord][abs]!=c%2+1){
+                if (Selection[2]==0 && actif==true && grille[ord][abs]!=c%2+1){ // Si aucun bouton n'est sélectionné et que le bouton sur lequel on a appuyé est occupé et que c'est un de mes pions : on fonce la couleur du pion
                     actif=false;
                     Selection[1]=ord-1;
                     Selection[0]=abs-1;
@@ -149,7 +143,7 @@ public class TraitementB extends Compteur {
                 System.out.println("Gagné joueur "+joueur);
                 JOptionPane.showMessageDialog(frame,"Le joueur "+joueur+" est victorieux !"); 
                 NouvellePartie NP =new NouvellePartie(compteur,frame);
-                NP.victoire();
+                NP.victoire();// On redémarre une nouvelle partie
             }
         }      
         else
