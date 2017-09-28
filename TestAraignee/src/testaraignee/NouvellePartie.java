@@ -29,9 +29,16 @@ public class NouvellePartie extends Compteur{
         Compteur NewCompt =new Compteur();
         frame = new MyFrame(NewCompt);
         frame.setVisible(true);
+    }
+        
+    public void victoire(){
+        frame.dispose();
+        Compteur NewCompt =new Compteur();
+        frame = new MyFrame(NewCompt);
+        frame.setVisible(true);
+    }
         
         
         
                 
     }
-}

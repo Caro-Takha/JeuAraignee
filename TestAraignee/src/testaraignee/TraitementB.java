@@ -24,10 +24,10 @@ public class TraitementB extends Compteur {
     private int[][] Selection; //matrice qui donne les coordonnees d'un pion selectionnÃ©
     private int ord;
     private int abs;
-    private JFrame frame;
+    private MyFrame frame;
     
     
-    public TraitementB(JButton b,Compteur compt,int xi,int xj,JFrame f){
+    public TraitementB(JButton b,Compteur compt,int xi,int xj,MyFrame f){
         button=b;
         compteur=compt;
         compteur.setCompteur(0);
@@ -140,6 +140,8 @@ public class TraitementB extends Compteur {
             if (joueur!=0){
                 System.out.println("Gagné joueur "+joueur);
                 JOptionPane.showMessageDialog(frame,"Le joueur "+joueur+" est victorieux !"); 
+                NouvellePartie NP =new NouvellePartie(compteur,frame);
+                NP.victoire();
             }
         }      
         else
