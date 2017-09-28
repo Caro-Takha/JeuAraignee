@@ -16,10 +16,14 @@ import java.awt.event.ActionListener;
  * @author Océane
  */
 public class MyFrame extends JFrame {
-    public MyFrame(){
+    private Compteur compt;
+    
+    public MyFrame(Compteur c){
+        
         super();
+        compt=c;
         this.setTitle("Jeu de l'araignée");
-        this.setContentPane(new Dessin());
+        this.setContentPane(new Dessin(compt,this));
         
         this.setSize(600, 600);
         //this.setLocationRelativeTo(null);
@@ -32,14 +36,8 @@ public class MyFrame extends JFrame {
         JMenuItem menuItem = new JMenuItem("Nouvelle Partie");
         menu.add(menuItem);
         
-        menuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser chooser = new JFileChooser();
-                chooser.showOpenDialog(null);
-
-            }
-
-        });
+        menuItem.addActionListener(new NouvellePartie(compt,this));
+        repaint();
         
 
         

@@ -19,31 +19,9 @@ public class TestAraignee {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MyFrame f = new MyFrame();
-
         Compteur compt=new Compteur();
-        JPanel c = (JPanel) f.getContentPane();
-        //Dessin d = new Dessin();
-        
-        int w = f.getWidth();
-        int h = f.getHeight(); 
-        GridLayout g=new GridLayout(3, 3);
-        c.setLayout(g);
-        //g.setHgap(w/5);
-        //g.setVgap(w/5);
-        
-        ArrayList<JButton> ListeBoutons = new ArrayList(); //On crée la liste contenant les 9 boutons
-        for (int i = 0; i < 9; i++) {
-            ListeBoutons.add(new JButton(""));
-        }
+        MyFrame f = new MyFrame(compt);
 
-        for (int i = 0; i < 9; i++) { //on donne les fonctionnalités souhaitées à chaque bouton de la liste
-            ListeBoutons.get(i).setOpaque(false);
-            ListeBoutons.get(i).setContentAreaFilled(false);
-            ListeBoutons.get(i).setBorderPainted(false);
-            c.add(ListeBoutons.get(i));
-            ListeBoutons.get(i).addActionListener(new TraitementB(ListeBoutons.get(i), compt, (i / 3) + 1, (i % 3) + 1, f));
-        }        
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         f.setVisible(true);
