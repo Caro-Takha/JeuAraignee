@@ -25,9 +25,11 @@ public class TraitementB extends Compteur {
     private int ord;
     private int abs;
     private MyFrame frame;
+    private JLabel label;
     
     
-    public TraitementB(JButton b,Compteur compt,int xi,int xj,MyFrame f){
+    public TraitementB(JButton b,Compteur compt,int xi,int xj,MyFrame f,JLabel l){
+        label=l;
         button=b;
         compteur=compt;
         compteur.setCompteur(0);
@@ -147,7 +149,7 @@ public class TraitementB extends Compteur {
             }
         }      
         else
-            JOptionPane.showMessageDialog(frame, "Au tour du joueur "+NumeroJoueurSuivant);
+            label.setText("A vous joueur "+NumeroJoueurSuivant+".");
         
     }
 }

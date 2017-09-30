@@ -6,7 +6,7 @@
 package testaraignee;
 
 import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 /**
  *
@@ -15,12 +15,12 @@ import javax.swing.JPanel;
 public class NouvellePartie extends Compteur{
     private Compteur compt;
     private MyFrame frame;
-    private JPanel panel;
+    private JSplitPane panel;
     
     public NouvellePartie(Compteur c,MyFrame f){
         compt=c;
         frame=f;
-        panel = (JPanel) frame.getContentPane();
+        panel = (JSplitPane) frame.getContentPane();
     }
     
     

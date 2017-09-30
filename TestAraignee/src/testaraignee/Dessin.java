@@ -14,8 +14,10 @@ import javax.swing.*;
 public class Dessin extends JPanel {
     private Compteur compt;
     private MyFrame frame;
+    private JLabel label;
     
-    public Dessin(Compteur c,MyFrame f) {
+    public Dessin(Compteur c,MyFrame f,JLabel l) {
+        label=l;
         compt=c;
         frame=f;
         GridLayout g=new GridLayout(3, 3);
@@ -26,7 +28,7 @@ public class Dessin extends JPanel {
             compt.getListeBoutons().get(i).setBorderPainted(false);
             compt.getListeBoutons().get(i).setIcon(null);
             this.add(compt.getListeBoutons().get(i));
-            compt.getListeBoutons().get(i).addActionListener(new TraitementB(compt.getListeBoutons().get(i), compt, (i / 3) + 1, (i % 3) + 1, frame));
+            compt.getListeBoutons().get(i).addActionListener(new TraitementB(compt.getListeBoutons().get(i), compt, (i / 3) + 1, (i % 3) + 1, frame,label));
                 }
     }
     
