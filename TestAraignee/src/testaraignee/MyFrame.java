@@ -29,6 +29,7 @@ public class MyFrame extends JFrame {
         
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,d, label);
+        splitPane.setContinuousLayout(true);// repaint constament les deux panels quand on bouge le divider
         this.setContentPane(splitPane); //On ajoute le plateau de jeu
         
         this.setSize(600, 600);

@@ -148,8 +148,16 @@ public class TraitementB extends Compteur {
                 NP.victoire();// On redémarre une nouvelle partie
             }
         }      
-        else
+        else{
             label.setText("A vous joueur "+NumeroJoueurSuivant+".");
-        
+            label.setOpaque(true);
+            if (NumeroJoueurSuivant==1){
+                label.setBackground(Color.red);
+            }
+            else {
+                Color MyBlue=new Color(50,195,255);
+                label.setBackground(MyBlue);
+            }
+        }
     }
 }
