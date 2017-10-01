@@ -20,10 +20,9 @@ public class FenetreAide implements ActionListener {
     public void actionPerformed(ActionEvent e){
         JFrame fenetre = new JFrame();
         fenetre.setSize(760,320);
-<<<<<<< HEAD
-=======
+
         fenetre.getContentPane().setBackground(Color.LIGHT_GRAY);
->>>>>>> origin/master
+
         fenetre.setTitle("Règles du jeu");
         
         JTextArea textArea = new JTextArea(5, 20);
