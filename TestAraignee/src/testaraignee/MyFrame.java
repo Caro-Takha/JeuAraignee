@@ -50,16 +50,13 @@ public class MyFrame extends JFrame {
         menu.add(menuItem); 
         JMenuItem menuItem2 = new JMenuItem("Règles du jeu");
         menu2.add(menuItem2); 
-<<<<<<< HEAD
         JMenuItem menuItem3 = new JMenuItem("Changer de noms");
         menu.add(menuItem3); 
         
         menuItem2.addActionListener(new FenetreAide());
         menuItem3.addActionListener(new FenetrePseudos());
-=======
         
-        menuItem2.addActionListener(new FenetreAide());
->>>>>>> origin/master
+
         menuItem.addActionListener(new NouvellePartie(compt,this)); //On ajoute le redémarrage du jeu après appui sur "Nouvelle partie"
         repaint();
         
