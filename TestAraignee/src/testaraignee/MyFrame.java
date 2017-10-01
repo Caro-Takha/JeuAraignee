@@ -17,13 +17,15 @@ import java.awt.event.ActionListener;
  */
 public class MyFrame extends JFrame {
     private Compteur compt;
+    private String joueur1;
+    private String joueur2;
     
     public MyFrame(Compteur c){
         
         super();
         compt=c;
         this.setTitle("Jeu de l'araignée");
-        JLabel label = new JLabel("A vous joueur 1.",JLabel.CENTER);
+        JLabel label = new JLabel("Sélectionnez une case pour placer le premier pion.",JLabel.CENTER);
         Dessin d=new Dessin(compt,this,label);
         d.setPreferredSize(new Dimension(600,500));
         
@@ -41,15 +43,20 @@ public class MyFrame extends JFrame {
         
         JMenu menu = new JMenu("Fichier");
         mBar.add(menu);// on ajoute un menu "Fichier"
+        JMenu menu2 = new JMenu("Aide");
+        mBar.add(menu2);
         
         JMenuItem menuItem = new JMenuItem("Nouvelle Partie");
         menu.add(menuItem); 
+        JMenuItem menuItem2 = new JMenuItem("Règles du jeu");
+        menu2.add(menuItem2); 
+        JMenuItem menuItem3 = new JMenuItem("Changer de noms");
+        menu.add(menuItem3); 
         
+        menuItem2.addActionListener(new FenetreAide());
+        menuItem3.addActionListener(new FenetrePseudos());
         menuItem.addActionListener(new NouvellePartie(compt,this)); //On ajoute le redémarrage du jeu après appui sur "Nouvelle partie"
         repaint();
-        
-
-        
         
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             

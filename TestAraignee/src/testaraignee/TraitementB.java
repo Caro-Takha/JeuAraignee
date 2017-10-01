@@ -142,19 +142,26 @@ public class TraitementB extends Compteur {
         // Conditions gagnantes :
         if ((grille[ord-1][abs]==joueur&&(grille[ord-2][abs]==joueur||grille[ord+1][abs]==joueur))||(grille[ord+1][abs]==joueur&&(grille[ord+2][abs]==joueur||grille[ord-1][abs]==joueur))||(grille[ord][abs-1]==joueur&&(grille[ord][abs-2]==joueur||grille[ord][abs+1]==joueur))||(grille[ord][abs+1]==joueur&&(grille[ord][abs+2]==joueur||grille[ord][abs-1]==joueur))||(grille[ord-1][abs-1]==joueur&&(grille[ord-2][abs-2]==joueur||grille[ord+1][abs+1]==joueur))){
             if (joueur!=0){
-                System.out.println("Gagné joueur "+joueur);
-                JOptionPane.showMessageDialog(frame,"Le joueur "+joueur+" est victorieux !"); 
+                if (joueur==1){
+                    JOptionPane.showMessageDialog(frame,FenetrePseudos.getNom1() +" a gagné la partie !"); 
+                }
+                if (joueur==2){
+                    JOptionPane.showMessageDialog(frame,FenetrePseudos.getNom1() +" a gagné la partie !"); 
+                }
                 NouvellePartie NP =new NouvellePartie(compteur,frame);
                 NP.victoire();// On redémarre une nouvelle partie
             }
         }      
         else{
-            label.setText("A vous joueur "+NumeroJoueurSuivant+".");
-            label.setOpaque(true);
+            
             if (NumeroJoueurSuivant==1){
+                label.setText("A vous "+FenetrePseudos.getNom1()+".");
+                label.setOpaque(true);
                 label.setBackground(Color.red);
             }
             else {
+                label.setText("A vous "+FenetrePseudos.getNom2()+".");
+                label.setOpaque(true);
                 Color MyBlue=new Color(50,195,255);
                 label.setBackground(MyBlue);
             }
