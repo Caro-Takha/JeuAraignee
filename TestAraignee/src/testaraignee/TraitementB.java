@@ -157,13 +157,13 @@ public class TraitementB extends Compteur {
             if (NumeroJoueurSuivant==1){
                 label.setText("A vous "+FenetrePseudos.getNom1()+".");
                 label.setOpaque(true);
-                label.setBackground(Color.red);
+                label.setForeground(Color.red);
             }
             else {
                 label.setText("A vous "+FenetrePseudos.getNom2()+".");
                 label.setOpaque(true);
                 Color MyBlue=new Color(50,195,255);
-                label.setBackground(MyBlue);
+                label.setForeground(MyBlue);
             }
         }
     }

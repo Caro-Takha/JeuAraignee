@@ -9,6 +9,10 @@ import javax.swing.*;
 import java.awt.geom.Line2D;
 import java.awt.GridLayout;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Dessin extends JPanel {
@@ -30,6 +34,9 @@ public class Dessin extends JPanel {
             this.add(compt.getListeBoutons().get(i));
             compt.getListeBoutons().get(i).addActionListener(new TraitementB(compt.getListeBoutons().get(i), compt, (i / 3) + 1, (i % 3) + 1, frame,label));
                 }
+        
+        
+        
     }
     
     
@@ -43,6 +50,7 @@ public class Dessin extends JPanel {
         int h = getHeight()-py; 
         int x0=px;
         int y0=py;
+        
         Graphics2D g2 = (Graphics2D) g;
         g2.setStroke(new BasicStroke(5));
         g2.draw(new Line2D.Float(x0, y0, w, h));

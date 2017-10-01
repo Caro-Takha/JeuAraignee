@@ -11,6 +11,7 @@ import javax.imageio.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.awt.event.ActionListener;
+import java.awt.image.*;
 /**
  *
  * @author Océane
@@ -25,16 +26,40 @@ public class MyFrame extends JFrame {
         super();
         compt=c;
         this.setTitle("Jeu de l'araignée");
+        
+        JPanel panel=new JPanel();
+        panel.setBackground(Color.white);
         JLabel label = new JLabel("Sélectionnez une case pour placer le premier pion.",JLabel.CENTER);
+        
+        label.setBackground(Color.white);
+        
+        
+        BufferedImage image = null;
+        try {                
+        image = ImageIO.read(new File("src/ressources/titre.png"));
+       } catch (IOException ex) {
+       }
+        Image newimg = image.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+        ImageIcon icon = new ImageIcon((Image)newimg);
+        
+        label.setIcon(icon);
+        this.setIconImage(image);
+        
+        
+        
+        
+        
+        panel.add(label);
+        
         Dessin d=new Dessin(compt,this,label);
         d.setPreferredSize(new Dimension(600,500));
         
 
-        JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,d, label);
+        JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,panel,d);
         splitPane.setContinuousLayout(true);// repaint constament les deux panels quand on bouge le divider
         this.setContentPane(splitPane); //On ajoute le plateau de jeu
         
-        this.setSize(600, 600);
+        this.setSize(600, 700);
         
         
 
