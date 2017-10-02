@@ -43,25 +43,24 @@ public class MyFrame extends JFrame {
         JLabel labelScores = new JLabel("Score de Joueur 1: "+score1+"\n Score de Joueur 2: "+score2,JLabel.RIGHT);
         
         int h = panel.getHeight(); 
-        Image newimg = image.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
-        ImageIcon icon = new ImageIcon((Image)newimg);
-        
-        label.setIcon(icon);
         this.setIconImage(image);
        
         
-        panel.add(label);
-        panel.add(labelScores);
+        panel.add("NORTH",label);
+        panel.add("SOUTH",labelScores);
         
         Dessin d=new Dessin(compt,this,label);
-        d.setPreferredSize(new Dimension(600,500));
+        d.setPreferredSize(new Dimension(600,450));
         
 
-        JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,panel,d);
+        JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,d,panel);
         splitPane.setContinuousLayout(true);// repaint constament les deux panels quand on bouge le divider
         this.setContentPane(splitPane); //On ajoute le plateau de jeu
-        
-        this.setSize(600, 700);
+        Dimension minimumSize = new Dimension(300, 300);
+        d.setMinimumSize(minimumSize);
+        Dimension maximumSize = new Dimension(200, 1000);
+        panel.setMaximumSize(maximumSize);
+        this.setSize(600, 600);
         
         
 
