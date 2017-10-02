@@ -21,7 +21,7 @@ public class FenetreAide implements ActionListener {
         JFrame fenetre = new JFrame();
         fenetre.setSize(760,320);
 
-        fenetre.getContentPane().setBackground(Color.LIGHT_GRAY);
+        fenetre.getContentPane().setBackground(Color.WHITE);
 
         fenetre.setTitle("Règles du jeu");
         

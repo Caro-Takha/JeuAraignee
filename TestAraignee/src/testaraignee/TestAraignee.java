@@ -20,7 +20,7 @@ public class TestAraignee {
      */
     public static void main(String[] args) {
         Compteur compt=new Compteur();
-        MyFrame f = new MyFrame(compt);
+        MyFrame f = new MyFrame(compt,0,0);
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);

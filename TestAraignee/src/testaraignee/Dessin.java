@@ -19,6 +19,8 @@ public class Dessin extends JPanel {
     private Compteur compt;
     private MyFrame frame;
     private JLabel label;
+    private BufferedImage logo;
+    private BufferedImage background;
     
     public Dessin(Compteur c,MyFrame f,JLabel l) {
         label=l;
@@ -36,9 +38,13 @@ public class Dessin extends JPanel {
                 }
         
         this.setBackground(Color.black);
+        try{
+            logo=ImageIO.read(new File("src/ressources/titre.png"));
+            background=ImageIO.read(new File("src/ressources/background.png"));
+        }catch (IOException i){
         
     }
-    
+    }
     
     
     
@@ -54,6 +60,8 @@ public class Dessin extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(4));
+        g2.drawImage(background, 0,0,getWidth(),getHeight(),null);
+        g2.drawImage(logo, 0,0,px,px,null);
         g2.draw(new Line2D.Float(x0, y0, w, h));
         g2.draw(new Line2D.Float(x0, y0, w, y0));
         g2.draw(new Line2D.Float(x0, y0, x0, h));

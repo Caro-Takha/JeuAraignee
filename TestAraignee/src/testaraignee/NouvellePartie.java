@@ -27,14 +27,14 @@ public class NouvellePartie extends Compteur{
     public void actionPerformed(ActionEvent e) { // cela permet de redémarrer une partie après avoir appuyer sur "Nouvelle Partie" dans le menu
         frame.dispose();//On supprime la fenetre actuelle
         Compteur NewCompt =new Compteur(); //on crée un nouveau compteur
-        frame = new MyFrame(NewCompt);// on crée une nouvelle frame
+        frame = new MyFrame(NewCompt,0,0);// on crée une nouvelle frame
         frame.setVisible(true); 
     }
         
     public void victoire(){ //cela permet de démarrer une nouvelle partie après une victoire
         frame.dispose();
         Compteur NewCompt =new Compteur();
-        frame = new MyFrame(NewCompt);
+        frame = new MyFrame(NewCompt,frame.getScore1(),frame.getScore2());
         frame.setVisible(true);
     }
         

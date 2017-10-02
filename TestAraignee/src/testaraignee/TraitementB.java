@@ -140,13 +140,15 @@ public class TraitementB extends Compteur {
         
         int NumeroJoueurSuivant=c%2+1;
         // Conditions gagnantes :
-        if ((grille[ord-1][abs]==joueur&&(grille[ord-2][abs]==joueur||grille[ord+1][abs]==joueur))||(grille[ord+1][abs]==joueur&&(grille[ord+2][abs]==joueur||grille[ord-1][abs]==joueur))||(grille[ord][abs-1]==joueur&&(grille[ord][abs-2]==joueur||grille[ord][abs+1]==joueur))||(grille[ord][abs+1]==joueur&&(grille[ord][abs+2]==joueur||grille[ord][abs-1]==joueur))||(grille[ord-1][abs-1]==joueur&&(grille[ord-2][abs-2]==joueur||grille[ord+1][abs+1]==joueur))){
+        if ((grille[ord-1][abs]==joueur&&(grille[ord-2][abs]==joueur||grille[ord+1][abs]==joueur))||(grille[ord+1][abs]==joueur&&(grille[ord+2][abs]==joueur||grille[ord-1][abs]==joueur))||(grille[ord][abs-1]==joueur&&(grille[ord][abs-2]==joueur||grille[ord][abs+1]==joueur))||(grille[ord][abs+1]==joueur&&(grille[ord][abs+2]==joueur||grille[ord][abs-1]==joueur))||(grille[ord-1][abs-1]==joueur&&(grille[ord-2][abs-2]==joueur||grille[ord+1][abs+1]==joueur))||(grille[ord-1][abs+1]==joueur&&(grille[ord-2][abs+2]==joueur||grille[ord+1][abs-1]==joueur))){
             if (joueur!=0){
                 if (joueur==1){
                     JOptionPane.showMessageDialog(frame,FenetrePseudos.getNom1() +" a gagné la partie !"); 
+                    frame.setScore1(frame.getScore1()+1);
                 }
                 if (joueur==2){
                     JOptionPane.showMessageDialog(frame,FenetrePseudos.getNom1() +" a gagné la partie !"); 
+                    frame.setScore2(frame.getScore2()+1);
                 }
                 NouvellePartie NP =new NouvellePartie(compteur,frame);
                 NP.victoire();// On redémarre une nouvelle partie

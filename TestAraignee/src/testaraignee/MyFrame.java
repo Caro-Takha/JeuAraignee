@@ -18,10 +18,10 @@ import java.awt.image.*;
  */
 public class MyFrame extends JFrame {
     private Compteur compt;
-    private String joueur1;
-    private String joueur2;
+    private static int score1;
+    private static int score2;
     
-    public MyFrame(Compteur c){
+    public MyFrame(Compteur c, int score1, int score2){
         
         super();
         compt=c;
@@ -40,18 +40,18 @@ public class MyFrame extends JFrame {
        } catch (IOException ex) {
        }
         
+        JLabel labelScores = new JLabel("Score de Joueur 1: "+score1+"\n Score de Joueur 2: "+score2,JLabel.RIGHT);
+        
         int h = panel.getHeight(); 
-        Image newimg = image.getScaledInstance(h, h, java.awt.Image.SCALE_SMOOTH);
+        Image newimg = image.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
         ImageIcon icon = new ImageIcon((Image)newimg);
         
         label.setIcon(icon);
         this.setIconImage(image);
-        
-        
-        
-        
+       
         
         panel.add(label);
+        panel.add(labelScores);
         
         Dessin d=new Dessin(compt,this,label);
         d.setPreferredSize(new Dimension(600,500));
@@ -92,4 +92,21 @@ public class MyFrame extends JFrame {
         this.setVisible(true);
   }
 
+    public int getScore1() {
+        return score1;
+    }
+
+    public int getScore2() {
+        return score2;
+    }
+
+    public void setScore1(int score1) {
+        this.score1 = score1;
+    }
+
+    public void setScore2(int score2) {
+        this.score2 = score2;
+    }
+
+    
 }
