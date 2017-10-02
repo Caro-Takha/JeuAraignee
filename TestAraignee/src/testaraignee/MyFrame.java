@@ -39,7 +39,9 @@ public class MyFrame extends JFrame {
         image = ImageIO.read(new File("src/ressources/titre.png"));
        } catch (IOException ex) {
        }
-        Image newimg = image.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+        
+        int h = panel.getHeight(); 
+        Image newimg = image.getScaledInstance(h, h, java.awt.Image.SCALE_SMOOTH);
         ImageIcon icon = new ImageIcon((Image)newimg);
         
         label.setIcon(icon);

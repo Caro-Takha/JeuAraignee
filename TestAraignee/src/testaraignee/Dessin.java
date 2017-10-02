@@ -35,7 +35,7 @@ public class Dessin extends JPanel {
             compt.getListeBoutons().get(i).addActionListener(new TraitementB(compt.getListeBoutons().get(i), compt, (i / 3) + 1, (i % 3) + 1, frame,label));
                 }
         
-        
+        this.setBackground(Color.black);
         
     }
     
@@ -52,7 +52,8 @@ public class Dessin extends JPanel {
         int y0=py;
         
         Graphics2D g2 = (Graphics2D) g;
-        g2.setStroke(new BasicStroke(5));
+        g2.setColor(Color.white);
+        g2.setStroke(new BasicStroke(4));
         g2.draw(new Line2D.Float(x0, y0, w, h));
         g2.draw(new Line2D.Float(x0, y0, w, y0));
         g2.draw(new Line2D.Float(x0, y0, x0, h));
@@ -61,11 +62,6 @@ public class Dessin extends JPanel {
         g2.draw(new Line2D.Float(w, y0, w, h));
         g2.draw(new Line2D.Float((w+px)/2, y0, (w+px)/2, h));
         g2.draw(new Line2D.Float(x0,(h+py)/2, w, (h+py)/2));
-        
-       
-        
-        
-	Color c = g.getColor();
-	g.setColor(Color.black);
+	
 	}
 }
