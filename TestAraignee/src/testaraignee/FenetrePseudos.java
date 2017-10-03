@@ -14,12 +14,14 @@ import javax.swing.*;
  * @author Caro
  */
 public class FenetrePseudos  implements ActionListener {
-    public static String nom1;
-    public static String nom2;
+    public String nom1;
+    public String nom2;
+    public MyFrame F;
     
-    public FenetrePseudos(){
-        nom1= "joueur 1";
-        nom2= "joueur 2";
+    public FenetrePseudos(MyFrame Frame){
+        nom1= "Joueur 1";
+        nom2= "Joueur 2";
+        F=Frame;
     }
     
     public void actionPerformed(ActionEvent e){
@@ -38,6 +40,10 @@ public class FenetrePseudos  implements ActionListener {
         Ok.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent ae){
         nom1 = J1.getText();
         nom2 =J2.getText();
+        Compteur NewCompt =new Compteur();
+        MyFrame frame = new MyFrame(NewCompt,F.getScore1(),F.getScore2(),nom1,nom2);
+        F.dispose();
+        frame.setVisible(true);
         fenetre.dispose();}});
         
         P.add(label1);
@@ -49,11 +55,11 @@ public class FenetrePseudos  implements ActionListener {
         fenetre.setVisible(true);
     }
 
-    public static String getNom1() {
+    public String getNom1() {
         return nom1;
     }
 
-    public static String getNom2() {
+    public String getNom2() {
         return nom2;
     }
     

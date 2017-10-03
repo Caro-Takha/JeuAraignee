@@ -143,11 +143,11 @@ public class TraitementB extends Compteur {
         if ((grille[ord-1][abs]==joueur&&(grille[ord-2][abs]==joueur||grille[ord+1][abs]==joueur))||(grille[ord+1][abs]==joueur&&(grille[ord+2][abs]==joueur||grille[ord-1][abs]==joueur))||(grille[ord][abs-1]==joueur&&(grille[ord][abs-2]==joueur||grille[ord][abs+1]==joueur))||(grille[ord][abs+1]==joueur&&(grille[ord][abs+2]==joueur||grille[ord][abs-1]==joueur))||(grille[ord-1][abs-1]==joueur&&(grille[ord-2][abs-2]==joueur||grille[ord+1][abs+1]==joueur))||(grille[ord-1][abs+1]==joueur&&(grille[ord-2][abs+2]==joueur||grille[ord+1][abs-1]==joueur))){
             if (joueur!=0){
                 if (joueur==1){
-                    JOptionPane.showMessageDialog(frame,FenetrePseudos.getNom1() +" a gagné la partie !"); 
+                    JOptionPane.showMessageDialog(frame,frame.getJ1() +" a gagné la partie !"); 
                     frame.setScore1(frame.getScore1()+1);
                 }
                 if (joueur==2){
-                    JOptionPane.showMessageDialog(frame,FenetrePseudos.getNom1() +" a gagné la partie !"); 
+                    JOptionPane.showMessageDialog(frame,frame.getJ2() +" a gagné la partie !"); 
                     frame.setScore2(frame.getScore2()+1);
                 }
                 NouvellePartie NP =new NouvellePartie(compteur,frame);
@@ -157,12 +157,12 @@ public class TraitementB extends Compteur {
         else{
             
             if (NumeroJoueurSuivant==1){
-                label.setText("A vous "+FenetrePseudos.getNom1()+".");
+                label.setText("A vous "+frame.getJ1() +".");
                 label.setOpaque(true);
                 label.setForeground(Color.red);
             }
             else {
-                label.setText("A vous "+FenetrePseudos.getNom2()+".");
+                label.setText("A vous "+frame.getJ2() +".");
                 label.setOpaque(true);
                 Color MyBlue=new Color(50,195,255);
                 label.setForeground(MyBlue);

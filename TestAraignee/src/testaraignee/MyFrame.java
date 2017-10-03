@@ -20,11 +20,15 @@ public class MyFrame extends JFrame {
     private Compteur compt;
     private static int score1;
     private static int score2;
+    private String J1;
+    private String J2;
     
-    public MyFrame(Compteur c, int score1, int score2){
+    public MyFrame(Compteur c, int score1, int score2, String Joueur1,String Joueur2){
         
         super();
         compt=c;
+        J1=Joueur1;
+        J2=Joueur2;
         this.setTitle("Jeu de l'araignée");
         
         JPanel panel=new JPanel();
@@ -40,7 +44,7 @@ public class MyFrame extends JFrame {
        } catch (IOException ex) {
        }
         
-        JLabel labelScores = new JLabel("Score de Joueur 1: "+score1+"\n Score de Joueur 2: "+score2,JLabel.RIGHT);
+        JLabel labelScores = new JLabel("Score de "+J1+" : "+score1+"\n Score de "+J2+" : "+score2,JLabel.RIGHT);
         
         int h = panel.getHeight(); 
         this.setIconImage(image);
@@ -80,7 +84,7 @@ public class MyFrame extends JFrame {
         menu.add(menuItem3); 
         
         menuItem2.addActionListener(new FenetreAide());
-        menuItem3.addActionListener(new FenetrePseudos());
+        menuItem3.addActionListener(new FenetrePseudos(this));
         
 
         menuItem.addActionListener(new NouvellePartie(compt,this)); //On ajoute le redémarrage du jeu après appui sur "Nouvelle partie"
@@ -106,6 +110,17 @@ public class MyFrame extends JFrame {
     public void setScore2(int score2) {
         this.score2 = score2;
     }
+
+    public String getJ1() {
+        return J1;
+    }
+
+    public String getJ2() {
+        return J2;
+    }
+
+
+    
 
     
 }
