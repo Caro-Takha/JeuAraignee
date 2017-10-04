@@ -5,7 +5,6 @@
  */
 package testaraignee;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -63,32 +62,36 @@ public class FenetrePseudos  implements ActionListener {
         JFrame fenetre = new JFrame();
         fenetre.setSize(330,130);
         fenetre.setTitle("Choix des noms");
-        JPanel P=new JPanel();
+        
         
         BufferedImage image = null;
         try {                
         image = ImageIO.read(new File("src/ressources/titre.png"));
        } catch (IOException ex) {
        }
-        fenetre.setIconImage(image);
+        fenetre.setIconImage(image);//Met cette image en icone de la nouvelle fenetre
          
-       
+        
+        JPanel P=new JPanel();
         JTextField J1= new JTextField(10);
         JLabel label1 = new JLabel("Nouveau nom du Joueur 1:");
         JTextField J2= new JTextField(10);
         JLabel label2 = new JLabel("Nouveau nom du Joueur 2:");
-        
         JButton Ok=new JButton("OK");
-        Ok.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent ae){
-        
-        labelScores.setText("<html>Score de "+J1.getText()+" : <font color = #FF0000 >"+score1+"</font><br>Score de "+J2.getText()+" : <font color = #32c3ff >"+score2+"</font></html>");
-        labelTour.setText("Sélectionnez une case pour placer un pion.");
         
         
-        nom1 = J1.getText();
-        nom2 =J2.getText();
+        Ok.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                //On modifie le nom des joueurs:
+                nom1 = J1.getText();
+                nom2 =J2.getText();
+                //On modifie ensuite le nom des joueurs dans les labels sous le plateau pour le tour en cours et les scores :
+                labelScores.setText("<html>Score de "+nom1+" : <font color = #FF0000 >"+score1+"</font><br>Score de "+nom2+" : <font color = #32c3ff >"+score2+"</font></html>");
+                labelTour.setText("Sélectionnez une case pour placer un pion.");
+                fenetre.dispose();
+            }
+        });
         
-        fenetre.dispose();}});
         
         P.add(label1);
         P.add(J1);

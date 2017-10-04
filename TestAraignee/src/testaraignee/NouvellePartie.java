@@ -14,13 +14,11 @@ import javax.swing.JSplitPane;
  */
 public class NouvellePartie extends Compteur{
     private MyFrame frame;
-    private JSplitPane panel;
     private FenetrePseudos FP;
     
     public NouvellePartie(FenetrePseudos F,MyFrame f){
         FP=F;
         frame=f;
-        panel = (JSplitPane) frame.getContentPane();
     }
     
     

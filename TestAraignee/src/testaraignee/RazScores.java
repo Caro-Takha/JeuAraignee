@@ -17,7 +17,7 @@ import javax.swing.*;
  *
  * @author Océane
  */
-public class RazScores implements ActionListener {
+public class RazScores implements ActionListener {//Cette classe permet la remise à zero des scores
     
     private FenetrePseudos FP;
     private JLabel labelScores;
@@ -31,6 +31,7 @@ public class RazScores implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         FP.setScore1(0);
         FP.setScore2(0);
+        //On modifie le label donnant les scores:
         labelScores.setText("<html>Score de "+FP.getNom1()+" : <font color = #FF0000 >"+FP.getScore1()+"</font><br>Score de "+FP.getNom2()+" : <font color = #32c3ff >"+FP.getScore2()+"</font></html>");
         
     }
