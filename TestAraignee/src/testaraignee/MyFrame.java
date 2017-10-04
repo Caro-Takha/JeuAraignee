@@ -20,16 +20,16 @@ public class MyFrame extends JFrame {
     private Compteur compt;
     private static int score1;
     private static int score2;
-    private String J1;
-    private String J2;
+    private FenetrePseudos FP;
     
-    public MyFrame(Compteur c, int score1, int score2, String Joueur1,String Joueur2){
+    public MyFrame(Compteur c, int score1, int score2,FenetrePseudos F){
         
         super();
         compt=c;
-        J1=Joueur1;
-        J2=Joueur2;
+        FP=F;
         this.setTitle("Jeu de l'araignée");
+        
+        
         
         JPanel panel=new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
@@ -45,21 +45,24 @@ public class MyFrame extends JFrame {
         image = ImageIO.read(new File("src/ressources/titre.png"));
        } catch (IOException ex) {
        }
+        this.setIconImage(image);
         
-        JLabel labelScores = new JLabel("<html>Score de "+J1+" : "+score1+"<br>Score de "+J2+" : "+score2+"</html>",JLabel.CENTER);
+        
+        JLabel labelScores = new JLabel("<html>Score de "+FP.getNom1()+" : <font color = #FF0000 >"+score1+"</font><br>Score de "+FP.getNom2()+" : <font color = #32c3ff >"+score2+"</font></html>",JLabel.CENTER);
         labelScores.setAlignmentX(Component.CENTER_ALIGNMENT);
         int h = panel.getHeight(); 
-        this.setIconImage(image);
+        
        
         
         panel.add("NORTH",label);
         panel.add("SOUTH",labelScores);
         
-        Dessin d=new Dessin(compt,this,label);
+        Dessin d=new Dessin(compt,this,label,FP);
         d.setPreferredSize(new Dimension(600,500));
         panel.setPreferredSize(new Dimension(600,50));
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,d,panel);
+        splitPane.setDividerSize(5);
         splitPane.setContinuousLayout(true);// repaint constament les deux panels quand on bouge le divider
         this.setContentPane(splitPane); //On ajoute le plateau de jeu
         Dimension minimumSize = new Dimension(300,300);
@@ -86,10 +89,10 @@ public class MyFrame extends JFrame {
         menu.add(menuItem3); 
         
         menuItem2.addActionListener(new FenetreAide());
-        menuItem3.addActionListener(new FenetrePseudos(this));
+        menuItem3.addActionListener(FP);
         
 
-        menuItem.addActionListener(new NouvellePartie(compt,this)); //On ajoute le redémarrage du jeu après appui sur "Nouvelle partie"
+        menuItem.addActionListener(new NouvellePartie(FP,this)); //On ajoute le redémarrage du jeu après appui sur "Nouvelle partie"
         repaint();
         
         
@@ -114,11 +117,11 @@ public class MyFrame extends JFrame {
     }
 
     public String getJ1() {
-        return J1;
+        return FP.getNom1();
     }
 
     public String getJ2() {
-        return J2;
+        return FP.getNom2();
     }
 
 

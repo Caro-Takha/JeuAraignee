@@ -21,8 +21,10 @@ public class Dessin extends JPanel {
     private JLabel label;
     private BufferedImage logo;
     private BufferedImage background;
+    private FenetrePseudos FP;
     
-    public Dessin(Compteur c,MyFrame f,JLabel l) {
+    public Dessin(Compteur c,MyFrame f,JLabel l,FenetrePseudos F) {
+        FP=F;
         label=l;
         compt=c;
         frame=f;
@@ -34,7 +36,7 @@ public class Dessin extends JPanel {
             compt.getListeBoutons().get(i).setBorderPainted(false);
             compt.getListeBoutons().get(i).setIcon(null);
             this.add(compt.getListeBoutons().get(i));
-            compt.getListeBoutons().get(i).addActionListener(new TraitementB(compt.getListeBoutons().get(i), compt, (i / 3) + 1, (i % 3) + 1, frame,label));
+            compt.getListeBoutons().get(i).addActionListener(new TraitementB(compt.getListeBoutons().get(i), compt, (i / 3) + 1, (i % 3) + 1, frame,label,FP));
                 }
         
         this.setBackground(Color.black);

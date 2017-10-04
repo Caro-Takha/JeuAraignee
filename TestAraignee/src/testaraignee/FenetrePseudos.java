@@ -7,6 +7,10 @@ package testaraignee;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -18,10 +22,9 @@ public class FenetrePseudos  implements ActionListener {
     public String nom2;
     public MyFrame F;
     
-    public FenetrePseudos(MyFrame Frame){
+    public FenetrePseudos(){
         nom1= "Joueur 1";
         nom2= "Joueur 2";
-        F=Frame;
     }
     
     public void actionPerformed(ActionEvent e){
@@ -29,6 +32,13 @@ public class FenetrePseudos  implements ActionListener {
         fenetre.setSize(330,130);
         fenetre.setTitle("Choix des noms");
         JPanel P=new JPanel();
+        
+        BufferedImage image = null;
+        try {                
+        image = ImageIO.read(new File("src/ressources/titre.png"));
+       } catch (IOException ex) {
+       }
+        fenetre.setIconImage(image);
          
        
         JTextField J1= new JTextField(10);

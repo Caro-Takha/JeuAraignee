@@ -26,9 +26,11 @@ public class TraitementB extends Compteur {
     private int abs;
     private MyFrame frame;
     private JLabel label;
+    private FenetrePseudos FP;
     
     
-    public TraitementB(JButton b,Compteur compt,int xi,int xj,MyFrame f,JLabel l){
+    public TraitementB(JButton b,Compteur compt,int xi,int xj,MyFrame f,JLabel l,FenetrePseudos F){
+        FP=F;
         label=l;
         button=b;
         compteur=compt;
@@ -150,7 +152,7 @@ public class TraitementB extends Compteur {
                     JOptionPane.showMessageDialog(frame,frame.getJ2() +" a gagné la partie !"); 
                     frame.setScore2(frame.getScore2()+1);
                 }
-                NouvellePartie NP =new NouvellePartie(compteur,frame);
+                NouvellePartie NP =new NouvellePartie(FP,frame);
                 NP.victoire();// On redémarre une nouvelle partie
             }
         }      
