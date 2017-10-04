@@ -22,14 +22,17 @@ public class Dessin extends JPanel {
     private BufferedImage background;
     private FenetrePseudos FP;
     private JSplitPane SP;
+    private GridLayout grid;
     
     public Dessin(Compteur c,MyFrame f,JLabel l,FenetrePseudos F) {
         FP=F;
         label=l;
         compt=c;
         frame=f;
-        GridLayout g=new GridLayout(3, 3);
-        this.setLayout(g);
+        grid=new GridLayout(3, 3);//Grille de 3 par 3 avec un espacement entre les boutons dépendant de la taille du panel
+        
+        
+        this.setLayout(grid);
         for (int i = 0; i < 9; i++) {//On ajoute tous les boutons (pions) et on les rend invisibles
             compt.getListeBoutons().get(i).setOpaque(false); 
             compt.getListeBoutons().get(i).setContentAreaFilled(false);
@@ -39,7 +42,10 @@ public class Dessin extends JPanel {
             compt.getListeBoutons().get(i).addActionListener(new TraitementB(compt.getListeBoutons().get(i), compt, (i / 3) + 1, (i % 3) + 1, frame,label,FP));
                 }
         
+        
         this.setBackground(Color.black);
+        
+        
         try{
             logo=ImageIO.read(new File("src/ressources/titre.png")); //Ce sera mit à côté du plateau
             background=ImageIO.read(new File("src/ressources/background.png")); //Derrière le plateau
@@ -81,6 +87,7 @@ public class Dessin extends JPanel {
         g2.draw(new Line2D.Float(w, y0, w, h));
         g2.draw(new Line2D.Float((w+px)/2, y0, (w+px)/2, h));
         g2.draw(new Line2D.Float(x0,(h+py)/2, w, (h+py)/2));
+        
 	}
     
     
