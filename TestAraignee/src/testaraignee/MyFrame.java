@@ -87,9 +87,12 @@ public class MyFrame extends JFrame {
         menu2.add(menuItem2); 
         JMenuItem menuItem3 = new JMenuItem("Changer de noms");
         menu.add(menuItem3); 
+        JMenuItem menuItem4 = new JMenuItem("Remise à zéro des scores");
+        menu.add(menuItem4); 
         
         menuItem2.addActionListener(new FenetreAide());
         menuItem3.addActionListener(FP);
+        menuItem4.addActionListener(new RazScores(FP,labelScores));
         
 
         menuItem.addActionListener(new NouvellePartie(FP,this)); //On ajoute le redémarrage du jeu après appui sur "Nouvelle partie"
