@@ -40,10 +40,10 @@ public class FenetrePseudos  implements ActionListener {
         Ok.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent ae){
         nom1 = J1.getText();
         nom2 =J2.getText();
-        Compteur NewCompt =new Compteur();
-        MyFrame frame = new MyFrame(NewCompt,F.getScore1(),F.getScore2(),nom1,nom2);
-        F.dispose();
-        frame.setVisible(true);
+        //Compteur NewCompt =new Compteur();
+        //MyFrame frame = new MyFrame(NewCompt,F.getScore1(),F.getScore2(),nom1,nom2);
+        //F.dispose();
+        //frame.setVisible(true);
         fenetre.dispose();}});
         
         P.add(label1);
