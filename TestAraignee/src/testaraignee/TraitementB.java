@@ -10,7 +10,6 @@ import javax.swing.*;
 import java.awt.*;
 import javax.imageio.*;
 import java.io.*;
-import java.util.ArrayList;
 
 /**
  *
@@ -18,12 +17,12 @@ import java.util.ArrayList;
  */
 public class TraitementB extends Compteur {
     private JButton button;
-    private boolean actif;
+    private boolean actif; // détermine si le bouton qu'on traite possède un pion ou non
     private Compteur compteur;
     private int[][] grille; // C'est la matrice dans Compteur (voir classe Compteur)
     private int[] Selection; //tableau qui donne les coordonnees d'un pion selectionnÃ© et s'il existe un point selctionné
-    private int ord;
-    private int abs;
+    private int ord; //ordonnée du bouton dans le plateau
+    private int abs; //abscisse ...
     private MyFrame frame;
     private JLabel label;
     private FenetrePseudos FP;
@@ -43,12 +42,12 @@ public class TraitementB extends Compteur {
         frame=f;
         
     }
-    public void setImage(String adresse){ //on crÃ©e une fonction pour associer une image Ã  un bouton
+    public void setImage(String adresse){ //on cree une fonction pour associer une image Ã  un bouton
         Image img= null;
                 try {
                 img = ImageIO.read(new File(adresse));
                 } catch (IOException i) {
-                }// il faut faire une exception pour aller chercher un fichier au cas oÃ¹ le fichier n'existe pas
+                }// il faut faire une exception pour aller chercher un fichier au cas ou le fichier n'existe pas
                 Image newimg = img.getScaledInstance(80, 80, java.awt.Image.SCALE_SMOOTH); // changer la taille de l'image pour s'adapter au bouton
                 ImageIcon icon = new ImageIcon(newimg);
                 button.setIcon(icon); // ajouter l'image au bouton
@@ -59,16 +58,16 @@ public class TraitementB extends Compteur {
     
     @Override
     public void actionPerformed (ActionEvent e) {
-        int c=compteur.getCompteur()+1;
-        //System.out.println(c);
+        int c=compteur.getCompteur()+1;//Numéro du tour
         int joueur=0;
         if (c<7){
         if (actif==false){
-            button.setOpaque(true);
+            button.setOpaque(true);//Le bouton reste transparent mais...
             button.setContentAreaFilled(true);
             button.setBorderPainted(true);
-            actif=true;
-            compteur.setCompteur(c);
+            actif=true;//Il est désormais occupé par un pion
+            compteur.setCompteur(c);//Un tour de plus a été joué
+            //On ajoute une icone, de couleur différente selon le tour (et donc le joueur qui a joue)
             if (c%2==0){
                 this.setImage("src/ressources/Bouton bleu.png");
                 grille[ord][abs]=2; // Signale que cette case  est dÃ©sormais occupÃ©e par le joueur 2
@@ -156,7 +155,7 @@ public class TraitementB extends Compteur {
                 NP.victoire();// On redémarre une nouvelle partie
             }
         }      
-        else{
+        else{//Si personne n'a gagné, c'est au tour du joueur suivant
             
             if (NumeroJoueurSuivant==1){
                 label.setText("A vous "+FP.getNom1() +".");

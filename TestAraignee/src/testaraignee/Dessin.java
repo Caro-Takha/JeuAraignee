@@ -13,7 +13,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.*;
 
 public class Dessin extends JPanel {
     private Compteur compt;
@@ -31,7 +30,7 @@ public class Dessin extends JPanel {
         frame=f;
         GridLayout g=new GridLayout(3, 3);
         this.setLayout(g);
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 9; i++) {//On ajoute tous les boutons (pions) et on les rend invisibles
             compt.getListeBoutons().get(i).setOpaque(false); 
             compt.getListeBoutons().get(i).setContentAreaFilled(false);
             compt.getListeBoutons().get(i).setBorderPainted(false);
@@ -42,8 +41,8 @@ public class Dessin extends JPanel {
         
         this.setBackground(Color.black);
         try{
-            logo=ImageIO.read(new File("src/ressources/titre.png"));
-            background=ImageIO.read(new File("src/ressources/background.png"));
+            logo=ImageIO.read(new File("src/ressources/titre.png")); //Ce sera mit à côté du plateau
+            background=ImageIO.read(new File("src/ressources/background.png")); //Derrière le plateau
         }catch (IOException i){
         
     }
@@ -55,12 +54,11 @@ public class Dessin extends JPanel {
     
     
     
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) { //On place ici le plateau et le fond, cela permettra de les modifier à chaque fois que la fenetre est resized
         
-	//this.resize((int) Math.round(frame.getHeight()*0.9),(int)Math.round(frame.getWidth()*0.9));
 	super.paintComponent(g);
-        int px= (int) Math.round(getWidth()*0.1675);
-        int py= (int) Math.round(getHeight()*0.1675);
+        int px= (int) Math.round(getWidth()*0.1675);//px et py permettent d'accorder le mouvement de la grille avec le mouvement des boutons (par le gridLayout) lors d'un resize
+        int py= (int) Math.round(getHeight()*0.1675);//L'alignement (fait par essais et corrigé visuellement) est peu précis mais est suffisant vu la taille de nos pions
         int w = getWidth()-px;
         int h = getHeight()-py; 
         int x0=px;
@@ -69,8 +67,12 @@ public class Dessin extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(4));
+        
+        //Le fond et le logo
         g2.drawImage(background, 0,0,getWidth(),getHeight(),null);
         g2.drawImage(logo, 0,0,px,px,null);
+        
+        //Les lignes du plateau :
         g2.draw(new Line2D.Float(x0, y0, w, h));
         g2.draw(new Line2D.Float(x0, y0, w, y0));
         g2.draw(new Line2D.Float(x0, y0, x0, h));

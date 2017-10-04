@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package testaraignee;
-import java.awt.Graphics;
 import javax.swing.*;
-import java.awt.GridLayout;
-import	java.util.ArrayList;
 
 /**
  *
