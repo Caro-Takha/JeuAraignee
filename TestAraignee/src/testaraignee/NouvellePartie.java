@@ -6,7 +6,6 @@
 package testaraignee;
 
 import java.awt.event.ActionEvent;
-import javax.swing.JSplitPane;
 
 /**
  *
