@@ -20,11 +20,35 @@ import javax.swing.*;
 public class FenetrePseudos  implements ActionListener {
     public String nom1;
     public String nom2;
-    public MyFrame F;
+    private JLabel label;
+    private int score1;
+    private int score2;
+
+    public void setScore1(int score1) {
+        this.score1 = score1;
+    }
+
+    public void setScore2(int score2) {
+        this.score2 = score2;
+    }
+
+    public int getScore1() {
+        return score1;
+    }
+
+    public int getScore2() {
+        return score2;
+    }
     
     public FenetrePseudos(){
+        score1=0;
+        score2=0;
         nom1= "Joueur 1";
         nom2= "Joueur 2";
+    }
+
+    public void setLabel(JLabel label) {
+        this.label = label;
     }
     
     public void actionPerformed(ActionEvent e){
@@ -50,6 +74,7 @@ public class FenetrePseudos  implements ActionListener {
         Ok.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent ae){
         nom1 = J1.getText();
         nom2 =J2.getText();
+        label.setText("<html>Score de "+nom1+" : <font color = #FF0000 >"+score1+"</font><br>Score de "+nom2+" : <font color = #32c3ff >"+score2+"</font></html>");
         fenetre.dispose();}});
         
         P.add(label1);

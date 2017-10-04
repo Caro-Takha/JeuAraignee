@@ -50,6 +50,7 @@ public class MyFrame extends JFrame {
         
         JLabel labelScores = new JLabel("<html>Score de "+FP.getNom1()+" : <font color = #FF0000 >"+score1+"</font><br>Score de "+FP.getNom2()+" : <font color = #32c3ff >"+score2+"</font></html>",JLabel.CENTER);
         labelScores.setAlignmentX(Component.CENTER_ALIGNMENT);
+        FP.setLabel(labelScores);
         int h = panel.getHeight(); 
         
        
