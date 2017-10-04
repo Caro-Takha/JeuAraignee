@@ -32,10 +32,12 @@ public class MyFrame extends JFrame {
         this.setTitle("Jeu de l'araignée");
         
         JPanel panel=new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         panel.setBackground(Color.white);
         JLabel label = new JLabel("Sélectionnez une case pour placer le premier pion.",JLabel.CENTER);
-        
+        label.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
         label.setBackground(Color.white);
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         
         BufferedImage image = null;
@@ -44,8 +46,8 @@ public class MyFrame extends JFrame {
        } catch (IOException ex) {
        }
         
-        JLabel labelScores = new JLabel("Score de "+J1+" : "+score1+"\n Score de "+J2+" : "+score2,JLabel.RIGHT);
-        
+        JLabel labelScores = new JLabel("<html>Score de "+J1+" : "+score1+"<br>Score de "+J2+" : "+score2+"</html>",JLabel.CENTER);
+        labelScores.setAlignmentX(Component.CENTER_ALIGNMENT);
         int h = panel.getHeight(); 
         this.setIconImage(image);
        
@@ -54,17 +56,17 @@ public class MyFrame extends JFrame {
         panel.add("SOUTH",labelScores);
         
         Dessin d=new Dessin(compt,this,label);
-        d.setPreferredSize(new Dimension(600,450));
-        
+        d.setPreferredSize(new Dimension(600,500));
+        panel.setPreferredSize(new Dimension(600,50));
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,d,panel);
         splitPane.setContinuousLayout(true);// repaint constament les deux panels quand on bouge le divider
         this.setContentPane(splitPane); //On ajoute le plateau de jeu
-        Dimension minimumSize = new Dimension(300, 300);
+        Dimension minimumSize = new Dimension(300,300);
         d.setMinimumSize(minimumSize);
-        Dimension maximumSize = new Dimension(200, 1000);
+        Dimension maximumSize = new Dimension(200, 200);
         panel.setMaximumSize(maximumSize);
-        this.setSize(600, 600);
+        this.setSize(600, 650);
         
         
 
