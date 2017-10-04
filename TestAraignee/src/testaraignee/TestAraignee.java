@@ -15,13 +15,10 @@ import	java.util.ArrayList;
  */
 public class TestAraignee {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        Compteur compt=new Compteur();
-        FenetrePseudos FP=new FenetrePseudos();
-        MyFrame f = new MyFrame(compt,FP);
+        
+        FenetrePseudos FP=new FenetrePseudos(); //FenetrePseudos stocke le nom des joueur et leur score, il permet de lancer la boite de dialogue pour changer les noms
+        MyFrame f = new MyFrame(FP);// On crée la frame principale
         
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

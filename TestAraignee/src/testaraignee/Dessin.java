@@ -22,6 +22,7 @@ public class Dessin extends JPanel {
     private BufferedImage logo;
     private BufferedImage background;
     private FenetrePseudos FP;
+    private JSplitPane SP;
     
     public Dessin(Compteur c,MyFrame f,JLabel l,FenetrePseudos F) {
         FP=F;
@@ -31,7 +32,7 @@ public class Dessin extends JPanel {
         GridLayout g=new GridLayout(3, 3);
         this.setLayout(g);
         for (int i = 0; i < 9; i++) {
-            compt.getListeBoutons().get(i).setOpaque(false);
+            compt.getListeBoutons().get(i).setOpaque(false); 
             compt.getListeBoutons().get(i).setContentAreaFilled(false);
             compt.getListeBoutons().get(i).setBorderPainted(false);
             compt.getListeBoutons().get(i).setIcon(null);
@@ -47,10 +48,16 @@ public class Dessin extends JPanel {
         
     }
     }
+
+    public void setSP(JSplitPane SP) {
+        this.SP = SP;
+    }
     
     
     
     public void paintComponent(Graphics g) {
+        
+	//this.resize((int) Math.round(frame.getHeight()*0.9),(int)Math.round(frame.getWidth()*0.9));
 	super.paintComponent(g);
         int px= (int) Math.round(getWidth()*0.1675);
         int py= (int) Math.round(getHeight()*0.1675);
@@ -72,6 +79,7 @@ public class Dessin extends JPanel {
         g2.draw(new Line2D.Float(w, y0, w, h));
         g2.draw(new Line2D.Float((w+px)/2, y0, (w+px)/2, h));
         g2.draw(new Line2D.Float(x0,(h+py)/2, w, (h+py)/2));
-	
 	}
+    
+    
 }
