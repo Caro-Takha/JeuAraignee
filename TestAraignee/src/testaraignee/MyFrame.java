@@ -36,6 +36,7 @@ public class MyFrame extends JFrame {
         label.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
         label.setBackground(Color.white);
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        FP.setLabelTour(label);
         
         
         BufferedImage image = null;

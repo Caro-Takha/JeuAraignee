@@ -5,6 +5,7 @@
  */
 package testaraignee;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -20,9 +21,21 @@ import javax.swing.*;
 public class FenetrePseudos  implements ActionListener {
     public String nom1;
     public String nom2;
-    private JLabel label;
+    private JLabel labelScores;
+    private JLabel labelTour;
     private int score1;
     private int score2;
+    
+    public FenetrePseudos(){
+        score1=0;
+        score2=0;
+        nom1= "Joueur 1";
+        nom2= "Joueur 2";
+    }
+
+    public void setLabelTour(JLabel labelTour) {
+        this.labelTour = labelTour;
+    }
 
     public void setScore1(int score1) {
         this.score1 = score1;
@@ -40,15 +53,10 @@ public class FenetrePseudos  implements ActionListener {
         return score2;
     }
     
-    public FenetrePseudos(){
-        score1=0;
-        score2=0;
-        nom1= "Joueur 1";
-        nom2= "Joueur 2";
-    }
+    
 
-    public void setLabel(JLabel label) {
-        this.label = label;
+    public void setLabel(JLabel labelScores) {
+        this.labelScores = labelScores;
     }
     
     public void actionPerformed(ActionEvent e){
@@ -72,9 +80,14 @@ public class FenetrePseudos  implements ActionListener {
         
         JButton Ok=new JButton("OK");
         Ok.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent ae){
+        
+        labelScores.setText("<html>Score de "+J1.getText()+" : <font color = #FF0000 >"+score1+"</font><br>Score de "+J2.getText()+" : <font color = #32c3ff >"+score2+"</font></html>");
+        labelTour.setText("Sélectionnez une case pour placer un pion.");
+        
+        
         nom1 = J1.getText();
         nom2 =J2.getText();
-        label.setText("<html>Score de "+nom1+" : <font color = #FF0000 >"+score1+"</font><br>Score de "+nom2+" : <font color = #32c3ff >"+score2+"</font></html>");
+        
         fenetre.dispose();}});
         
         P.add(label1);
