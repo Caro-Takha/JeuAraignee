@@ -18,11 +18,9 @@ import java.awt.image.*;
  */
 public class MyFrame extends JFrame {
     private Compteur compt;
-    private static int score1;
-    private static int score2;
     private FenetrePseudos FP;
     
-    public MyFrame(Compteur c, int score1, int score2,FenetrePseudos F){
+    public MyFrame(Compteur c,FenetrePseudos F){
         
         super();
         compt=c;
@@ -48,7 +46,7 @@ public class MyFrame extends JFrame {
         this.setIconImage(image);
         
         
-        JLabel labelScores = new JLabel("<html>Score de "+FP.getNom1()+" : <font color = #FF0000 >"+score1+"</font><br>Score de "+FP.getNom2()+" : <font color = #32c3ff >"+score2+"</font></html>",JLabel.CENTER);
+        JLabel labelScores = new JLabel("<html>Score de "+FP.getNom1()+" : <font color = #FF0000 >"+FP.getScore1()+"</font><br>Score de "+FP.getNom2()+" : <font color = #32c3ff >"+FP.getScore2()+"</font></html>",JLabel.CENTER);
         labelScores.setAlignmentX(Component.CENTER_ALIGNMENT);
         FP.setLabel(labelScores);
         int h = panel.getHeight(); 
@@ -99,34 +97,7 @@ public class MyFrame extends JFrame {
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             
         this.setVisible(true);
-  }
-
-    public int getScore1() {
-        return score1;
     }
 
-    public int getScore2() {
-        return score2;
-    }
-
-    public void setScore1(int score1) {
-        this.score1 = score1;
-    }
-
-    public void setScore2(int score2) {
-        this.score2 = score2;
-    }
-
-    public String getJ1() {
-        return FP.getNom1();
-    }
-
-    public String getJ2() {
-        return FP.getNom2();
-    }
-
-
-    
-
-    
+   
 }

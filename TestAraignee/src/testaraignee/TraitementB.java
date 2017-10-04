@@ -145,12 +145,12 @@ public class TraitementB extends Compteur {
         if ((grille[ord-1][abs]==joueur&&(grille[ord-2][abs]==joueur||grille[ord+1][abs]==joueur))||(grille[ord+1][abs]==joueur&&(grille[ord+2][abs]==joueur||grille[ord-1][abs]==joueur))||(grille[ord][abs-1]==joueur&&(grille[ord][abs-2]==joueur||grille[ord][abs+1]==joueur))||(grille[ord][abs+1]==joueur&&(grille[ord][abs+2]==joueur||grille[ord][abs-1]==joueur))||(grille[ord-1][abs-1]==joueur&&(grille[ord-2][abs-2]==joueur||grille[ord+1][abs+1]==joueur))||(grille[ord-1][abs+1]==joueur&&(grille[ord-2][abs+2]==joueur||grille[ord+1][abs-1]==joueur))){
             if (joueur!=0){
                 if (joueur==1){
-                    JOptionPane.showMessageDialog(frame,frame.getJ1() +" a gagné la partie !"); 
-                    frame.setScore1(frame.getScore1()+1);
+                    JOptionPane.showMessageDialog(frame,FP.getNom1()+" a gagné la partie !"); 
+                    FP.setScore1(FP.getScore1()+1);
                 }
                 if (joueur==2){
-                    JOptionPane.showMessageDialog(frame,frame.getJ2() +" a gagné la partie !"); 
-                    frame.setScore2(frame.getScore2()+1);
+                    JOptionPane.showMessageDialog(frame,FP.getNom2() +" a gagné la partie !"); 
+                    FP.setScore2(FP.getScore2()+1);
                 }
                 NouvellePartie NP =new NouvellePartie(FP,frame);
                 NP.victoire();// On redémarre une nouvelle partie
@@ -159,12 +159,12 @@ public class TraitementB extends Compteur {
         else{
             
             if (NumeroJoueurSuivant==1){
-                label.setText("A vous "+frame.getJ1() +".");
+                label.setText("A vous "+FP.getNom1() +".");
                 label.setOpaque(true);
                 label.setForeground(Color.red);
             }
             else {
-                label.setText("A vous "+frame.getJ2() +".");
+                label.setText("A vous "+FP.getNom2() +".");
                 label.setOpaque(true);
                 Color MyBlue=new Color(50,195,255);
                 label.setForeground(MyBlue);

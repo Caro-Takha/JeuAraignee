@@ -21,7 +21,7 @@ public class TestAraignee {
     public static void main(String[] args) {
         Compteur compt=new Compteur();
         FenetrePseudos FP=new FenetrePseudos();
-        MyFrame f = new MyFrame(compt,0,0,FP);
+        MyFrame f = new MyFrame(compt,FP);
         
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
