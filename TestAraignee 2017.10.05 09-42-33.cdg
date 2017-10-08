@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="TestAraignee">
+  <ClassDiagramComponents>
+    <Class name="Compteur" package="testaraignee" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="compteur" type="int" visibility="private"/>
+        <Field name="matrice" type="int[][]" visibility="private"/>
+        <Field name="Selection" type="int[]" visibility="private"/>
+        <Field name="ListeBoutons" type="ArrayList&lt;JButton&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getListeBoutons" returnType="ArrayList&lt;JButton&gt;" visibility="public"/>
+        <Method name="getCompteur" returnType="int" visibility="public"/>
+        <Method name="setCompteur" returnType="void" visibility="public">
+          <Argument type="int" name="compteur"/>
+        </Method>
+        <Method name="getMatrice" returnType="int[][]" visibility="public"/>
+        <Method name="getSelection" returnType="int[]" visibility="public"/>
+        <Method name="setSelection" returnType="void" visibility="public">
+          <Argument type="int[]" name="Selection"/>
+        </Method>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Dessin" package="testaraignee" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="compt" type="Compteur" visibility="private"/>
+        <Field name="frame" type="MyFrame" visibility="private"/>
+        <Field name="label" type="JLabel" visibility="private"/>
+        <Field name="logo" type="BufferedImage" visibility="private"/>
+        <Field name="background" type="BufferedImage" visibility="private"/>
+        <Field name="FP" type="FenetrePseudos" visibility="private"/>
+        <Field name="SP" type="JSplitPane" visibility="private"/>
+        <Field name="grid" type="GridLayout" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Compteur" name="c"/>
+          <Argument type="MyFrame" name="f"/>
+          <Argument type="JLabel" name="l"/>
+          <Argument type="FenetrePseudos" name="F"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setSP" returnType="void" visibility="public">
+          <Argument type="JSplitPane" name="SP"/>
+        </Method>
+        <Method name="paintComponent" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FenetreAide" package="testaraignee" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FenetrePseudos" package="testaraignee" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="nom1" type="String" visibility="public"/>
+        <Field name="nom2" type="String" visibility="public"/>
+        <Field name="labelScores" type="JLabel" visibility="private"/>
+        <Field name="labelTour" type="JLabel" visibility="private"/>
+        <Field name="score1" type="int" visibility="private"/>
+        <Field name="score2" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setLabelTour" returnType="void" visibility="public">
+          <Argument type="JLabel" name="labelTour"/>
+        </Method>
+        <Method name="setScore1" returnType="void" visibility="public">
+          <Argument type="int" name="score1"/>
+        </Method>
+        <Method name="setScore2" returnType="void" visibility="public">
+          <Argument type="int" name="score2"/>
+        </Method>
+        <Method name="getScore1" returnType="int" visibility="public"/>
+        <Method name="getScore2" returnType="int" visibility="public"/>
+        <Method name="setLabel" returnType="void" visibility="public">
+          <Argument type="JLabel" name="labelScores"/>
+        </Method>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="e"/>
+        </Method>
+        <Method name="getNom1" returnType="String" visibility="public"/>
+        <Method name="getNom2" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MyFrame" package="testaraignee" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="compt" type="Compteur" visibility="private"/>
+        <Field name="FP" type="FenetrePseudos" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="FenetrePseudos" name="F"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="NouvellePartie" package="testaraignee" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="frame" type="MyFrame" visibility="private"/>
+        <Field name="FP" type="FenetrePseudos" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="FenetrePseudos" name="F"/>
+          <Argument type="MyFrame" name="f"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="e"/>
+        </Method>
+        <Method name="victoire" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RazScores" package="testaraignee" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="FP" type="FenetrePseudos" visibility="private"/>
+        <Field name="labelScores" type="JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="FenetrePseudos" name="F"/>
+          <Argument type="JLabel" name="l"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TestAraignee" package="testaraignee" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TraitementB" package="testaraignee" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="button" type="JButton" visibility="private"/>
+        <Field name="actif" type="boolean" visibility="private"/>
+        <Field name="compteur" type="Compteur" visibility="private"/>
+        <Field name="grille" type="int[][]" visibility="private"/>
+        <Field name="Selection" type="int[]" visibility="private"/>
+        <Field name="ord" type="int" visibility="private"/>
+        <Field name="abs" type="int" visibility="private"/>
+        <Field name="frame" type="MyFrame" visibility="private"/>
+        <Field name="label" type="JLabel" visibility="private"/>
+        <Field name="FP" type="FenetrePseudos" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JButton" name="b"/>
+          <Argument type="Compteur" name="compt"/>
+          <Argument type="int" name="xi"/>
+          <Argument type="int" name="xj"/>
+          <Argument type="MyFrame" name="f"/>
+          <Argument type="JLabel" name="l"/>
+          <Argument type="FenetrePseudos" name="F"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setImage" returnType="void" visibility="public">
+          <Argument type="String" name="adresse"/>
+        </Method>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="frame" source="testaraignee.NouvellePartie" target="testaraignee.MyFrame" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="FP" source="testaraignee.Dessin" target="testaraignee.FenetrePseudos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="frame" source="testaraignee.TraitementB" target="testaraignee.MyFrame" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="compt" source="testaraignee.Dessin" target="testaraignee.Compteur" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="testaraignee.NouvellePartie" target="testaraignee.Compteur"/>
+    <HasRelation name="frame" source="testaraignee.Dessin" target="testaraignee.MyFrame" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="FP" source="testaraignee.NouvellePartie" target="testaraignee.FenetrePseudos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="compteur" source="testaraignee.TraitementB" target="testaraignee.Compteur" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="FP" source="testaraignee.MyFrame" target="testaraignee.FenetrePseudos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="testaraignee.TraitementB" target="testaraignee.Compteur"/>
+    <HasRelation name="FP" source="testaraignee.RazScores" target="testaraignee.FenetrePseudos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="FP" source="testaraignee.TraitementB" target="testaraignee.FenetrePseudos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="compt" source="testaraignee.MyFrame" target="testaraignee.Compteur" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
